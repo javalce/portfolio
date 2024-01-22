@@ -1,0 +1,74 @@
+---
+import Badge from '@components/Badge.astro';
+import Experience from '@components/Experience.astro';
+import Projects from '@components/Projects.astro';
+import SectionContainer from '@components/SectionContainer.astro';
+import SocialPill from '@components/SocialPill.astro';
+import BriefcaseIcon from '@icons/BriefcaseIcon.astro';
+import CodeIcon from '@icons/CodeIcon.astro';
+import GithubIcon from '@icons/GithubIcon.astro';
+import LinkedinIcon from '@icons/LinkedinIcon.astro';
+import MailIcon from '@icons/MailIcon.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout
+  title='Porfolio de javalce - Desarrollador y Programador Web con 2 años de expediencia'
+  descripcion='Contrata a javalce para crear tu aplicación web. Desarrollador Web Full Stack. Especializado en crear aplicaciones únicas.'
+>
+  <main class='px-4'>
+    <SectionContainer class='py-44 pb-24'>
+      <img
+        class='mb-4 size-20 rounded-full'
+        src='https://avatars.githubusercontent.com/u/56077652?v=4'
+        alt='Javier foto'
+      />
+      <h1
+        class='flex flex-row gap-x-4 pb-6 text-3xl font-bold text-white lg:pb-10 lg:text-5xl'
+      >
+        Hey, soy Javier Valero <a
+          href='https://linkedin.com/in/javalce'
+          target='_blank'
+          rel='noopener noreferrer'
+          class='flex items-center justify-center'
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2 class='max-w-[500px] text-wrap text-2xl'>
+        <span>+2 años de experiencia.</span>
+        <span class='text-yellow-200/90'>Desarrollador Web Full Stack</span>.
+        <span class='text-red-200/90'>De Valencia, España</span>.
+        <span class='opacity-75'>
+          Especializado en crear aplicaciones únicas.
+        </span>
+      </h2>
+
+      <nav class='mt-8 flex flex-wrap gap-4'>
+        <SocialPill href='https://linkedin.com/in/javalce'>
+          <LinkedinIcon class='size-4 lg:size-6' /> Linkedin
+        </SocialPill>
+        <SocialPill href='https://github.com/javalce'>
+          <GithubIcon class='size-4 lg:size-6' /> Github
+        </SocialPill>
+        <SocialPill href='mailto:javalce29@gmail.com'>
+          <MailIcon class='size-4 lg:size-6' /> javalce29@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id='experience'>
+      <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
+        <BriefcaseIcon class='size-7' /> Experiencia laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id='projects'>
+      <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
+        <CodeIcon class='size-7' /> Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>

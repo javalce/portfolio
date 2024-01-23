@@ -1,24 +1,65 @@
+---
+const navItems = [
+  {
+    title: 'Experiencia',
+    url: '/#experience',
+  },
+  {
+    title: 'Proyectos',
+    url: '/#projects',
+  },
+  {
+    title: 'Sobre mí',
+    url: '/#about',
+  },
+  {
+    title: 'Contacto',
+    url: '/#contact',
+  },
+];
+---
+
 <header
   class='sticky top-0 z-10 mx-auto flex w-full items-center justify-center py-5 xl:w-[1120px]'
 >
   <nav
     class='flex flex-row items-center rounded-full border border-black bg-black/50 px-3 py-1 backdrop-blur-2xl'
   >
-    <a
-      class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
-      href='/#experience'>Experiencia</a
-    >
-    <a
-      class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
-      href='/#projects'>Proyectos</a
-    >
-    <a
-      class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
-      href='/#about'>Sobre mí</a
-    >
-    <a
-      class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
-      href='/#contact'>Contacto</a
-    >
+    {
+      navItems.map(({ title, url }) => (
+        <a
+          class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
+          href={url}
+        >
+          {title}
+        </a>
+      ))
+    }
   </nav>
 </header>
+
+<script>
+  const $navElements: Element[] = [
+    ...document.querySelectorAll('header nav a'),
+  ];
+
+  window.addEventListener('scroll', () => {
+    $navElements.forEach((a) => {
+      const selectionForSection = a.getAttribute('href')?.substring(1);
+      const sectionElement: HTMLDivElement | null = document.querySelector(
+        selectionForSection || '',
+      );
+
+      if (sectionElement === null) return;
+
+      const selectionTop = sectionElement.offsetTop - 150;
+
+      if (window.scrollY <= selectionTop) return;
+
+      $navElements.forEach((aToRemove) =>
+        aToRemove.classList.remove('bg-white/15'),
+      );
+      a.classList.add('bg-white/15');
+    });
+  });
+</script>

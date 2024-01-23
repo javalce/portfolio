@@ -1,6 +1,9 @@
 ---
+import LinkButton from '@components/ui/LinkButton.astro';
+import GithubIcon from '@icons/GithubIcon.astro';
 import NextJSIcon from '@icons/NextJSIcon.astro';
 import TailwindIcon from '@icons/TailwindIcon.astro';
+import WebIcon from '@icons/WebIcon.astro';
 import { cn } from '@lib/utils';
 
 const TAGS = {
@@ -29,32 +32,48 @@ const PROJECTS = [
 ];
 ---
 
-{
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
-      <h3 class='mb-2 text-2xl font-semibold text-yellow-200'>{title}</h3>
-      <p class='mb-4 text-pretty text-lg'>{description}</p>
-      <ul class='mb-2 flex flex-row gap-x-2'>
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={cn(
-                'flex gap-x-2 rounded-full px-2 py-1 text-xs',
-                tag.class,
-              )}
-            >
-              <tag.icon class='size-4' />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        loading='lazy'
-        class='rounded shadow-2xl shadow-white/10'
-        src={image}
-        alt={`Captura de pantalla del proyecto ${image}`}
-      />
-    </article>
-  ))
-}
+<section class='flex flex-col gap-y-16'>
+  {
+    PROJECTS.map(({ title, description, tags, image, link, github }) => (
+      <article>
+        <h3 class='mb-2 text-2xl font-semibold text-yellow-200'>{title}</h3>
+        <p class='mb-4 text-pretty text-lg'>{description}</p>
+        <ul class='mb-2 flex flex-row gap-x-2'>
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={cn(
+                  'flex gap-x-2 rounded-full px-2 py-1 text-xs',
+                  tag.class,
+                )}
+              >
+                <tag.icon class='size-4' />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          loading='lazy'
+          class='rounded shadow-2xl shadow-white/10'
+          src={image}
+          alt={`Captura de pantalla del proyecto ${image}`}
+        />
+        <footer class='mt-4 flex items-end justify-start gap-x-4'>
+          {github && (
+            <LinkButton href={github}>
+              <GithubIcon class='size-4 md:size-6' />
+              Ver el código fuente
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <WebIcon class='size-4 md:size-6' />
+              Ir a la web
+            </LinkButton>
+          )}
+        </footer>
+      </article>
+    ))
+  }
+</section>

@@ -1,0 +1,19 @@
+---
+import { cn } from '@lib/utils';
+
+interface Props {
+  name: string;
+  separation?: boolean;
+}
+
+const { name, separation } = Astro.props;
+---
+
+<article
+  class={cn({
+    'mb-10': separation,
+  })}
+>
+  <h1 class='mb-4 text-xl font-semibold'>&lt;{name} /&gt;</h1>
+  <slot />
+</article>

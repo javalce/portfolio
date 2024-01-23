@@ -1,0 +1,48 @@
+---
+import Component from '@components/Component.astro';
+import Badge from '@components/ui/Badge.astro';
+import LinkButton from '@components/ui/LinkButton.astro';
+import SectionContainer from '@components/ui/SectionContainer.astro';
+import SocialPill from '@components/ui/SocialPill.astro';
+import LinkedinIcon from '@icons/LinkedinIcon.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout
+  title='Design System porfolio'
+  descripcion='El catálogo de componentes de nuestro porfolio'
+>
+  <SectionContainer>
+    <Component name='Badge' separation>
+      <Badge>Tailwind</Badge>
+    </Component>
+
+    <Component name='SocialPill' separation>
+      <div class='flex'>
+        <SocialPill href='https://linkedin.com/in/javalce'>
+          <LinkedinIcon class='size-4 md:size-6' /> Linkedin
+        </SocialPill>
+      </div>
+    </Component>
+
+    <Component name='LinkButton'>
+      <LinkButton href='https://github.com/javalce/porfolio'>
+        Saber más
+        <svg
+          class='ms-2 h-3 w-3 rtl:rotate-180'
+          aria-hidden='true'
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 14 10'
+        >
+          <path
+            stroke='currentColor'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M1 5h12m0 0L9 1m4 4L9 9'></path>
+        </svg>
+      </LinkButton>
+    </Component>
+  </SectionContainer>
+</Layout>

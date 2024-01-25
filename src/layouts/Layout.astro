@@ -3,6 +3,7 @@ import '@fontsource/poppins/400.css';
 
 import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -21,6 +22,7 @@ const { descripcion, title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body class='relative text-white'>
     <div
@@ -32,28 +34,28 @@ const { descripcion, title } = Astro.props;
     <Header />
     <slot />
     <Footer />
-  </body>
-  <style is:global>
-    :root {
-      color-scheme: light dark;
-    }
-
-    html {
-      font-family: 'Poppins', system-ui, sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #050505;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+    <style is:global>
+      :root {
+        color-scheme: light dark;
       }
-    }
-  </style>
+
+      html {
+        font-family: 'Poppins', system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #050505;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </body>
 </html>

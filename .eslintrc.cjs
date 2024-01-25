@@ -29,6 +29,7 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
+      processor: 'astro/client-side-ts',
       rules: {
         'astro/no-set-html-directive': 'error',
         'unicorn/filename-case': 'off',

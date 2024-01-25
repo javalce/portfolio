@@ -2,18 +2,22 @@
 const navItems = [
   {
     title: 'Experiencia',
+    label: 'experience',
     url: '/#experience',
   },
   {
     title: 'Proyectos',
+    label: 'proyects',
     url: '/#projects',
   },
   {
     title: 'Sobre mí',
+    label: 'about',
     url: '/#about',
   },
   {
     title: 'Contacto',
+    label: 'contact',
     url: '/#contact',
   },
 ];
@@ -26,9 +30,10 @@ const navItems = [
     class='flex flex-row items-center rounded-full border border-black bg-black/50 px-3 py-1 backdrop-blur-2xl'
   >
     {
-      navItems.map(({ title, url }) => (
+      navItems.map(({ title, label, url }) => (
         <a
           class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
+          aria-label={label}
           href={url}
         >
           {title}

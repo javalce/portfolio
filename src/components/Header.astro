@@ -7,7 +7,7 @@ const navItems = [
   },
   {
     title: 'Proyectos',
-    label: 'proyects',
+    label: 'projects',
     url: '/#projects',
   },
   {
@@ -32,7 +32,7 @@ const navItems = [
     {
       navItems.map(({ title, label, url }) => (
         <a
-          class='rounded-full px-2 text-sm transition hover:bg-white/10 sm:px-3 sm:text-base'
+          class='rounded-full px-2 text-sm capitalize transition ease-in hover:bg-white/10 sm:px-3 sm:text-base'
           aria-label={label}
           href={url}
         >
@@ -44,27 +44,55 @@ const navItems = [
 </header>
 
 <script>
-  const $navElements: Element[] = [
-    ...document.querySelectorAll('header nav a'),
-  ];
+  document.addEventListener('astro:page-load', () => {
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('header nav a');
 
-  window.addEventListener('scroll', () => {
-    $navElements.forEach((a) => {
-      const selectionForSection = a.getAttribute('href')?.substring(1);
-      const sectionElement: HTMLDivElement | null = document.querySelector(
-        selectionForSection || '',
-      );
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute('aria-label') == entry.target.id) {
+              item.classList.add('link-active');
+            } else {
+              item.classList.remove('link-active');
+            }
+          });
+        }
+      });
+    };
 
-      if (sectionElement === null) return;
-
-      const selectionTop = sectionElement.offsetTop - 150;
-
-      if (window.scrollY <= selectionTop) return;
-
-      $navElements.forEach((aToRemove) =>
-        aToRemove.classList.remove('bg-white/15'),
-      );
-      a.classList.add('bg-white/15');
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3,
     });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Cleanup function
+    window.onunload = () => {
+      observer.disconnect();
+    };
   });
 </script>
+
+<style>
+  nav {
+    animation: nav-shadow 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 400px;
+  }
+
+  @keyframes nav-shadow {
+    to {
+      @apply shadow-lg;
+    }
+  }
+
+  .link-active {
+    @apply bg-white/15 font-semibold shadow-lg shadow-white/20 backdrop-blur-2xl;
+  }
+</style>

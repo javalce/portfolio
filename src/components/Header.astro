@@ -72,8 +72,7 @@ const navItems = [
       observer.observe(section);
     });
 
-    // Cleanup function
-    window.onunload = () => {
+    window.onbeforeunload = () => {
       observer.disconnect();
     };
   });

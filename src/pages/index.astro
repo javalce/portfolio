@@ -13,6 +13,8 @@ import LinkedinIcon from '@icons/LinkedinIcon.astro';
 import MailIcon from '@icons/MailIcon.astro';
 import ProfileIcon from '@icons/ProfileIcon.astro';
 import Layout from '@layouts/Layout.astro';
+
+const availableToWork = true;
 ---
 
 <Layout
@@ -29,14 +31,19 @@ import Layout from '@layouts/Layout.astro';
       <h1
         class='flex flex-row gap-x-4 pb-6 text-3xl font-bold text-white lg:pb-10 lg:text-5xl'
       >
-        Hey, soy Javier Valero <a
-          href='https://linkedin.com/in/javalce'
-          target='_blank'
-          rel='noopener noreferrer'
-          class='flex items-center justify-center transition hover:scale-105'
-        >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
+        Hey, soy Javier Valero
+        {
+          availableToWork && (
+            <a
+              href='https://linkedin.com/in/javalce'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='flex items-center justify-center transition hover:scale-105'
+            >
+              <Badge>Disponible para trabajar</Badge>
+            </a>
+          )
+        }
       </h1>
       <h2 class='max-w-[500px] text-wrap text-2xl'>
         <span>+2 años de experiencia.</span>

@@ -4,6 +4,9 @@ const project = resolve(__dirname, 'tsconfig.json');
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+  env: {
+    es2022: true,
+  },
   settings: {
     'import/resolver': {
       typescript: {
@@ -20,7 +23,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['.eslintrc.cjs'],
+  ignorePatterns: ['.eslintrc.cjs', 'dist'],
   overrides: [
     {
       files: ['*.astro'],
@@ -33,6 +36,7 @@ module.exports = {
       rules: {
         'astro/no-set-html-directive': 'error',
         'unicorn/filename-case': 'off',
+        'import/no-unresolved': 'off',
       },
     },
   ],
@@ -58,5 +62,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

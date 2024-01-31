@@ -1,17 +1,18 @@
-<article class='flex flex-col items-center justify-center gap-8 md:flex-row'>
+<article
+  class='flex flex-col items-center justify-center gap-8 text-gray-300 md:flex-row'
+>
   <div
-    class='text-pretty [&>p>strong]:font-semibold [&>p>strong]:text-yellow-400 [&>p]:mb-4'
+    class='order-2 text-pretty md:order-1 [&>p>strong]:font-mono [&>p>strong]:font-normal [&>p>strong]:text-yellow-200 [&>p]:mb-4'
   >
     <p>
-      Me llamo Javier Valero y tengo 25 años. <strong>
-        Estudié
-        <em class='italic'>Ingeniería Multimedia</em> y un
-        <em class='italic'>
-          Máster Universitario en Tecnologías Web, Computación en la Nube y
-          Aplicaciones Móbiles
-        </em>, ambos por la Universitat de València.
-      </strong> Posteriormente, he trabajado en el mundo del desarrollo web y disfruto
-      creando experiencias web para los usuarios.
+      Me llamo Javier Valero y tengo 25 años. Estudié
+      <strong>Ingeniería Multimedia</strong> y un
+      <strong>
+        Máster Universitario en Tecnologías Web, Computación en la Nube y
+        Aplicaciones Móbiles
+      </strong>, ambos por la Universitat de València. Posteriormente, he
+      trabajado en el mundo del desarrollo web y disfruto creando experiencias
+      web para los usuarios.
     </p>
 
     <p>
@@ -22,8 +23,11 @@
     </p>
   </div>
   <img
-    class='order-1 size-64 rounded-full md:order-2'
+    width='200'
+    height='200'
     src='/profile.webp'
-    alt='Javier foto'
+    alt='Javier Valero'
+    class='order-1 aspect-square h-full w-64 rotate-3 rounded-2xl bg-yellow-500/5 object-cover p-1 ring-1 ring-white/20 md:order-2 lg:w-64 lg:p-2'
+    style='object-position: 50% 50%'
   />
 </article>

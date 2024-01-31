@@ -26,13 +26,11 @@ const navItems = [
 <header
   class='sticky top-0 z-10 mx-auto flex h-14 w-full items-center justify-center pt-2'
 >
-  <nav
-    class='flex h-full w-full flex-row flex-wrap items-center justify-center rounded-full border-2 border-gray-500 bg-slate-950/50 px-3 py-1 backdrop-blur-2xl md:w-3/4 md:px-6 lg:w-1/2 xl:w-2/5'
-  >
+  <nav class='flex rounded-full px-3 text-sm font-medium text-gray-200'>
     {
       navItems.map(({ title, label, url }) => (
         <a
-          class='rounded-full p-1 px-2 text-sm capitalize transition ease-in hover:bg-white/10 sm:px-3 sm:text-base'
+          class='relative block p-2 transition hover:text-yellow-400'
           aria-label={label}
           href={url}
         >
@@ -53,9 +51,9 @@ const navItems = [
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute('aria-label') == entry.target.id) {
-              item.classList.add('link-active');
+              item.classList.add('text-yellow-500');
             } else {
-              item.classList.remove('link-active');
+              item.classList.remove('text-yellow-500');
             }
           });
         }
@@ -72,8 +70,10 @@ const navItems = [
       observer.observe(section);
     });
 
-    window.onbeforeunload = () => {
-      observer.disconnect();
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === 'hidden') {
+        observer.disconnect();
+      }
     };
   });
 </script>
@@ -82,16 +82,12 @@ const navItems = [
   nav {
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
-    animation-range: 0 400px;
+    animation-range: 0 100px;
   }
 
   @keyframes nav-shadown {
     to {
-      @apply shadow-xl;
+      @apply bg-gray-800/60 shadow-lg ring-1 ring-white/10 backdrop-blur;
     }
-  }
-
-  .link-active {
-    @apply bg-white/15 font-semibold shadow-lg shadow-white/20 backdrop-blur-2xl;
   }
 </style>

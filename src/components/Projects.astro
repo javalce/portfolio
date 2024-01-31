@@ -2,13 +2,12 @@
 import LinkButton from '@components/ui/LinkButton.astro';
 import GithubIcon from '@icons/GithubIcon.astro';
 import JavaScriptIcon from '@icons/JavaScriptIcon.astro';
+import LinkedinIcon from '@icons/LinkedinIcon.astro';
 import NextJSIcon from '@icons/NextJSIcon.astro';
 import NpmIcon from '@icons/NpmIcon.astro';
 import ReactIcon from '@icons/ReactIcon.astro';
 import TailwindIcon from '@icons/TailwindIcon.astro';
 import TypeScriptIcon from '@icons/TypeScriptIcon.astro';
-import WebIcon from '@icons/WebIcon.astro';
-import { cn } from '@lib/utils';
 import type { Project, Tag } from '@models/project';
 
 const TAGS: Record<string, Tag> = {
@@ -55,52 +54,56 @@ const PROJECTS: Project[] = [
 <div class='flex flex-col gap-y-16'>
   {
     PROJECTS.map(({ title, description, tags, image, link, github, npm }) => (
-      <article>
-        <h3 class='mb-2 text-2xl font-semibold text-yellow-200'>{title}</h3>
-        <p class='mb-4 text-pretty text-lg'>{description}</p>
-        <ul class='mb-2 flex flex-row gap-x-2'>
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={cn(
-                  'flex gap-x-2 rounded-full px-2 py-1 text-xs',
-                  tag.class,
-                )}
-              >
-                <tag.icon class='size-4' />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-        {image && (
-          <img
-            loading='lazy'
-            class='rounded shadow-2xl shadow-white/10'
-            src={image}
-            alt={`Captura de pantalla del proyecto ${image}`}
-          />
-        )}
-        <footer class='mt-4 flex items-end justify-start gap-x-4'>
-          {github && (
-            <LinkButton href={github}>
-              <GithubIcon class='size-4 md:size-6' />
-              Ver el código fuente
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <WebIcon class='size-4 md:size-6' />
-              Ir a la web
-            </LinkButton>
-          )}
-          {npm && (
-            <LinkButton href={npm}>
-              <NpmIcon class='size-4 md:size-6' />
-              Ir a npm
-            </LinkButton>
-          )}
-        </footer>
+      <article class='group flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
+        <div class='w-full md:w-1/2'>
+          <div class='relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-xl shadow-xl transition duration-500 ease-in-out sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50'>
+            <img
+              loading='lazy'
+              class='h-56 w-full object-cover object-top transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105'
+              src={image}
+              alt={`Captura de pantalla del proyecto ${image}`}
+            />
+          </div>
+        </div>
+        <div class='w-full md:w-1/2 md:max-w-lg'>
+          <h3 class='text-2xl font-bold text-gray-100'>{title}</h3>
+          <div class='mt-2 flex flex-wrap'>
+            <ul class='mb-2 flex flex-row gap-x-2'>
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1 `}
+                  >
+                    <tag.icon class='size-4' />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class='mt-2 text-gray-400'>{description}</div>
+            <footer class='mt-4 flex items-end justify-start gap-x-4'>
+              {github && (
+                <LinkButton href={github}>
+                  <GithubIcon class='size-6' />
+                  Ver en GitHub
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <LinkedinIcon class='size-4' />
+                  Ir a la web
+                </LinkButton>
+              )}
+              {npm && (
+                <LinkButton href={npm}>
+                  <NpmIcon class='size-4 md:size-6' />
+                  Ir a npm
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
       </article>
     ))
   }

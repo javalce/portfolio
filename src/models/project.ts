@@ -9,7 +9,7 @@ export interface Project {
   description: string;
   github: string;
   link?: string;
-  image?: string;
+  image: string;
   npm?: string;
   tags: Tag[];
 }

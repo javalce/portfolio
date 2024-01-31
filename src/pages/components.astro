@@ -2,8 +2,10 @@
 import Component from '@components/Component.astro';
 import Badge from '@components/ui/Badge.astro';
 import LinkButton from '@components/ui/LinkButton.astro';
+import LinkInline from '@components/ui/LinkInline.astro';
 import SectionContainer from '@components/ui/SectionContainer.astro';
 import SocialPill from '@components/ui/SocialPill.astro';
+import GithubIcon from '@icons/GithubIcon.astro';
 import LinkedinIcon from '@icons/LinkedinIcon.astro';
 import Layout from '@layouts/Layout.astro';
 ---
@@ -25,24 +27,33 @@ import Layout from '@layouts/Layout.astro';
       </div>
     </Component>
 
-    <Component name='LinkButton'>
+    <Component name='LinkButton' separation>
       <LinkButton href='https://github.com/javalce/porfolio'>
-        Saber más
-        <svg
-          class='ms-2 h-3 w-3 rtl:rotate-180'
-          aria-hidden='true'
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 14 10'
-        >
-          <path
-            stroke='currentColor'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
-            d='M1 5h12m0 0L9 1m4 4L9 9'></path>
-        </svg>
+        <GithubIcon class='size-4 md:size-6' /> Github
       </LinkButton>
+    </Component>
+
+    <Component name='LinkInline'>
+      <LinkInline href='https://github.com/javalce/porfolio'>
+        Saber más{' '}
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='w-5'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          stroke-width='2'
+          stroke='currentColor'
+          fill='none'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        >
+          <>
+            <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+            <path d='M9 6l6 6l-6 6'></path>
+          </>
+        </svg>
+      </LinkInline>
     </Component>
   </SectionContainer>
 </Layout>

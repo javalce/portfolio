@@ -1,4 +1,8 @@
 ---
+interface Props {
+  href: string;
+}
+
 const { href } = Astro.props;
 ---
 
@@ -6,7 +10,7 @@ const { href } = Astro.props;
   href={href}
   target='_blank'
   rel='noopener noreferrer'
-  class='inline-flex items-center justify-center gap-x-2 rounded-full border border-gray-300 bg-slate-950 px-2 py-1 text-xs transition hover:scale-110 hover:bg-slate-900 dark:border-white/10 md:px-4 md:py-2 md:text-base'
+  class='text-md group inline-flex max-w-fit items-center justify-center gap-2 space-x-2 rounded-xl border border-gray-600 bg-gray-800 px-3 py-2 text-base text-white transition hover:border-gray-900 hover:bg-gray-800 hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-yellow-500/80 focus-visible:ring-offset-2 active:bg-black'
 >
   <slot />
 </a>

@@ -23,10 +23,19 @@ const EXPERIENCE = [
 ];
 ---
 
-<ol class='relative ml-3 border-s border-gray-200'>
+<!-- <ol class='relative ml-3 border-s border-gray-200'>
   {
     EXPERIENCE.map((experience) => (
       <li class='mb-10 ms-4'>
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol> -->
+<ol class='relative mt-16'>
+  {
+    EXPERIENCE.map((experience) => (
+      <li class=''>
         <ExperienceItem {...experience} />
       </li>
     ))

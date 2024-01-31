@@ -70,10 +70,8 @@ const navItems = [
       observer.observe(section);
     });
 
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === 'hidden') {
-        observer.disconnect();
-      }
+    window.onbeforeunload = () => {
+      observer.disconnect();
     };
   });
 </script>

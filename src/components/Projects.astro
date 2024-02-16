@@ -8,9 +8,9 @@ import NpmIcon from '@icons/NpmIcon.astro';
 import ReactIcon from '@icons/ReactIcon.astro';
 import TailwindIcon from '@icons/TailwindIcon.astro';
 import TypeScriptIcon from '@icons/TypeScriptIcon.astro';
-import type { Project, Tag } from '@models/project';
+import { cn } from '@lib/utils';
 
-const TAGS: Record<string, Tag> = {
+const TAGS = {
   NEXT: {
     name: 'Next.js',
     class: 'bg-black text-white',
@@ -38,7 +38,7 @@ const TAGS: Record<string, Tag> = {
   },
 };
 
-const PROJECTS: Project[] = [
+const PROJECTS = [
   {
     title: 'create-javalce-app - A CLI to create projects from templates',
     description:
@@ -47,6 +47,15 @@ const PROJECTS: Project[] = [
     npm: 'https://www.npmjs.com/package/create-javalce-app',
     github: 'https://github.com/javalce/create-javalce-app',
     tags: [TAGS.JAVASCRIPT, TAGS.TYPESCRIPT, TAGS.NEXT, TAGS.REACT],
+  },
+  {
+    title: 'CSS Layout Playground - Your CSS playground for layouting',
+    description:
+      'Un sitio web para probar diferentes técnicas de maquetación con CSS mediante Flexbox. Puedes ver cómo se comportan los elementos al cambiar sus propiedades y valores.',
+    image: '/projects/css-layout-playground.webp',
+    link: 'https://css-layout-playground.vercel.app/',
+    github: 'https://github.com/javalce/css-layout-playground',
+    tags: [TAGS.TYPESCRIPT, TAGS.NEXT, TAGS.TAILWIND],
   },
 ];
 ---
@@ -72,7 +81,10 @@ const PROJECTS: Project[] = [
               {tags.map((tag) => (
                 <li>
                   <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1 `}
+                    class={cn(
+                      'flex gap-x-2 rounded-full px-2 py-1 text-xs',
+                      tag.class,
+                    )}
                   >
                     <tag.icon class='size-4' />
                     {tag.name}
@@ -83,12 +95,10 @@ const PROJECTS: Project[] = [
 
             <div class='mt-2 text-gray-400'>{description}</div>
             <footer class='mt-4 flex flex-wrap items-end justify-start gap-2'>
-              {github && (
-                <LinkButton href={github}>
-                  <GithubIcon class='size-6' />
-                  Ver en GitHub
-                </LinkButton>
-              )}
+              <LinkButton href={github}>
+                <GithubIcon class='size-6' />
+                Ver en GitHub
+              </LinkButton>
               {link && (
                 <LinkButton href={link}>
                   <LinkIcon class='size-4' />

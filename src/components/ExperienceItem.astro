@@ -3,40 +3,32 @@ import LinkInline from './ui/LinkInline.astro';
 
 interface Props {
   title: string;
+  company: string;
   description: string;
   date: string;
   link?: string;
 }
 
-const { title, description, date, link } = Astro.props;
+const { title, company, description, date, link } = Astro.props;
 ---
 
 <div
-  class="relative mx-12 grid pb-12 before:absolute before:left-[-25px]
-before:block before:h-full before:border-l-2
-before:border-gray-800 before:content-[''] md:grid-cols-5 md:gap-10
-md:space-x-4 md:before:left-[-37px]"
+  class="md:space-x-4] relative mx-12 grid pb-12 before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10"
 >
   <div class='relative pb-12 md:col-span-2'>
-    <div class='sticky top-28'>
-      <svg
-        class='absolute left-[-38px] rounded-full bg-white text-gray-500 ring-1 ring-gray-500 md:left-[-50px]'
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 24 24'
-        width='28'
-        height='28'
-        ><path
-          fill-rule='evenodd'
-          d='M15.5 11.75a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm1.444-.75a5.001 5.001 0 00-9.888 0H2.75a.75.75 0 100 1.5h4.306a5.001 5.001 0 009.888 0h4.306a.75.75 0 100-1.5h-4.306z'
-          fill='currentColor'></path></svg
+    <div class='sticky top-0'>
+      <span class='absolute -left-[42px] rounded-full text-5xl text-yellow-400'
+        >&bull;</span
       >
-      <h3 class='text-xl font-bold text-gray-200'>
-        {title}
-      </h3>
-      <time class='m-0 p-0 text-sm text-gray-300'>{date}</time>
+
+      <h3 class='text-xl font-bold text-yellow-400'>{title}</h3>
+      <h4 class='text-xl font-semibold text-white'>
+        {company}
+      </h4>
+      <time class='m-0 p-0 text-sm text-white/80'>{date}</time>
     </div>
   </div>
-  <div class='relative flex flex-col gap-4 pb-4 text-gray-300 md:col-span-3'>
+  <div class='relative flex flex-col gap-2 pb-4 text-gray-300 md:col-span-3'>
     {description}
     {
       link && (

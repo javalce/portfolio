@@ -4,38 +4,32 @@ import ExperienceItem from './ExperienceItem.astro';
 const EXPERIENCE = [
   {
     date: 'Actualmente...',
-    title: 'Desarrollador Web – ETSE-UV',
+    title: 'Desarrollador Web',
+    company: 'ETSE-UV',
     description:
       'Diseño e implementación de un dashboard para consulta de datos estadísticos. Implementación y optimización de las consultas SQL para la extracción de los datos estadísticos.',
   },
   {
     date: 'Mayo 2022',
-    title: 'Desarrollador Web – ETSE-UV',
+    title: 'Desarrollador Web',
+    company: 'ETSE-UV',
     description:
       'Diseño e implementación de un cuestionario online usando el software redCAP.',
   },
   {
     date: 'Noviembre 2021',
-    title: 'Desarrollador Web – NITCAI Data Management',
+    title: 'Desarrollador Web',
+    company: 'NITCAI Data Management',
     description:
       'Implemntación del sistema de tracking de poses de una persona y del dashboard para la visualización de los resultados. Implementación de funciones lambda en AWS para el uso de la aplicación web.',
   },
 ];
 ---
 
-<!-- <ol class='relative ml-3 border-s border-gray-200'>
-  {
-    EXPERIENCE.map((experience) => (
-      <li class='mb-10 ms-4'>
-        <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
-</ol> -->
 <ol class='relative mt-16'>
   {
     EXPERIENCE.map((experience) => (
-      <li class=''>
+      <li>
         <ExperienceItem {...experience} />
       </li>
     ))

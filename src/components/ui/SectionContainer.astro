@@ -12,7 +12,10 @@ const { id, class: className } = Astro.props;
 <section
   id={id}
   data-section={id}
-  class={cn('mx-auto w-full lg:w-[740px] pb-24 section', className)}
+  class={cn(
+    'mx-auto w-full lg:max-w-4xl md:max-w-2xl section container',
+    className,
+  )}
 >
   <slot />
 </section>

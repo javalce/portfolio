@@ -15,29 +15,31 @@ import Layout from '@layouts/Layout.astro';
   descripcion='Contrata a javalce para crear tu aplicación web. Desarrollador Web Full Stack. Especializado en crear aplicaciones para la visualización de datos.'
 >
   <main class='px-4'>
-    <SectionContainer class='py-44 pb-24'>
+    <SectionContainer class='py-16 md:py-16'>
       <Hero />
     </SectionContainer>
 
-    <SectionContainer id='experience'>
-      <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
-        <BriefcaseIcon class='size-7' /> Experiencia laboral
-      </h2>
-      <Experience />
-    </SectionContainer>
+    <div class='space-y-24'>
+      <SectionContainer id='experience'>
+        <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
+          <BriefcaseIcon class='size-8' /> Experiencia laboral
+        </h2>
+        <Experience />
+      </SectionContainer>
 
-    <SectionContainer id='projects'>
-      <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
-        <CodeIcon class='size-7' /> Proyectos
-      </h2>
-      <Projects />
-    </SectionContainer>
+      <SectionContainer id='projects'>
+        <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
+          <CodeIcon class='size-8' /> Proyectos
+        </h2>
+        <Projects />
+      </SectionContainer>
 
-    <SectionContainer id='about'>
-      <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
-        <ProfileIcon class='size-7' /> Sobre mí
-      </h2>
-      <About />
-    </SectionContainer>
+      <SectionContainer id='about'>
+        <h2 class='mb-6 flex items-center gap-x-3 text-3xl font-semibold'>
+          <ProfileIcon class='size-8' /> Sobre mí
+        </h2>
+        <About />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>

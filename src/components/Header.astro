@@ -24,9 +24,11 @@ const navItems = [
 ---
 
 <header
-  class='sticky top-0 z-10 mx-auto flex h-14 w-full items-center justify-center pt-2'
+  class='fixed top-0 z-10 mx-auto mt-2 flex w-full items-center justify-center'
 >
-  <nav class='flex rounded-full px-3 text-sm font-medium text-gray-200'>
+  <nav
+    class='flex items-center justify-center rounded-full px-3 text-sm font-medium text-gray-200'
+  >
     {
       navItems.map(({ title, label, url }) => (
         <a
@@ -91,7 +93,7 @@ const navItems = [
 
   @keyframes nav-shadown {
     to {
-      @apply bg-gray-800/60 shadow-lg ring-1 ring-white/10 backdrop-blur;
+      @apply bg-gray-400/50 shadow-lg ring-1 ring-white/10 backdrop-blur;
     }
   }
 </style>

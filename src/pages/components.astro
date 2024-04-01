@@ -14,46 +14,48 @@ import Layout from '@layouts/Layout.astro';
   title='Design System porfolio'
   descripcion='El catálogo de componentes de nuestro porfolio'
 >
-  <SectionContainer>
-    <Component name='Badge' separation>
-      <Badge>Tailwind</Badge>
-    </Component>
+  <main class='px-4'>
+    <SectionContainer class='py-16 md:py-24'>
+      <Component name='Badge' separation>
+        <Badge>Tailwind</Badge>
+      </Component>
 
-    <Component name='SocialPill' separation>
-      <div class='flex'>
-        <SocialPill href='https://linkedin.com/in/javalce'>
-          <LinkedinIcon class='size-4 md:size-6' /> Linkedin
-        </SocialPill>
-      </div>
-    </Component>
+      <Component name='SocialPill' separation>
+        <div class='flex'>
+          <SocialPill href='https://linkedin.com/in/javalce'>
+            <LinkedinIcon class='size-4 md:size-6' /> Linkedin
+          </SocialPill>
+        </div>
+      </Component>
 
-    <Component name='LinkButton' separation>
-      <LinkButton href='https://github.com/javalce/porfolio'>
-        <GithubIcon class='size-4 md:size-6' /> Github
-      </LinkButton>
-    </Component>
+      <Component name='LinkButton' separation>
+        <LinkButton href='https://github.com/javalce/porfolio'>
+          <GithubIcon class='size-4 md:size-6' /> Github
+        </LinkButton>
+      </Component>
 
-    <Component name='LinkInline'>
-      <LinkInline href='https://github.com/javalce/porfolio'>
-        Saber más{' '}
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          class='w-5'
-          width='24'
-          height='24'
-          viewBox='0 0 24 24'
-          stroke-width='2'
-          stroke='currentColor'
-          fill='none'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-        >
-          <>
-            <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-            <path d='M9 6l6 6l-6 6'></path>
-          </>
-        </svg>
-      </LinkInline>
-    </Component>
-  </SectionContainer>
+      <Component name='LinkInline'>
+        <LinkInline href='https://github.com/javalce/porfolio'>
+          Saber más{' '}
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='w-5'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            stroke-width='2'
+            stroke='currentColor'
+            fill='none'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          >
+            <>
+              <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+              <path d='M9 6l6 6l-6 6'></path>
+            </>
+          </svg>
+        </LinkInline>
+      </Component>
+    </SectionContainer>
+  </main>
 </Layout>

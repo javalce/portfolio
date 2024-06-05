@@ -52,7 +52,7 @@ const navItems = [
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            if (item.getAttribute('aria-label') == entry.target.id) {
+            if (item.getAttribute('aria-label') === entry.target.id) {
               item.classList.add('text-yellow-500');
             } else {
               item.classList.remove('text-yellow-500');

@@ -1,29 +1,24 @@
-const { resolve } = require('node:path');
-
-const project = resolve(__dirname, 'tsconfig.json');
-
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+  root: true,
   env: {
+    node: true,
     es2022: true,
-  },
-  settings: {
-    'import/resolver': {
-      typescript: {
-        project,
-      },
-    },
+    browser: true,
   },
   extends: [
-    require.resolve('@vercel/style-guide/eslint/browser'),
-    require.resolve('@vercel/style-guide/eslint/node'),
-    require.resolve('@vercel/style-guide/eslint/typescript'),
-    'plugin:astro/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
+    'eslint:recommended',
+    'standard',
+    'plugin:@typescript-eslint/strict',
+    'plugin:@typescript-eslint/stylistic',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['.eslintrc.cjs', 'dist'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  ignorePatterns: ['node_modules', 'dist'],
   overrides: [
     {
       files: ['*.astro'],
@@ -32,21 +27,16 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
-      processor: 'astro/client-side-ts',
+      extends: [
+        'plugin:astro/recommended',
+        'plugin:astro/jsx-a11y-recommended',
+      ],
       rules: {
         'astro/no-set-html-directive': 'error',
-        'unicorn/filename-case': 'off',
-        'import/no-unresolved': 'off',
       },
     },
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project,
-  },
   rules: {
-    'import/no-default-export': 'off',
     'padding-line-between-statements': [
       'warn',
       { blankLine: 'always', prev: '*', next: 'return' },
@@ -57,11 +47,5 @@ module.exports = {
         next: ['const', 'let', 'var'],
       },
     ],
-    '@typescript-eslint/no-shadow': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/no-confusing-void-expression': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

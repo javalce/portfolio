@@ -38,7 +38,17 @@ const TAGS = {
   },
 };
 
-const PROJECTS = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  link?: string;
+  github: string;
+  npm?: string;
+  tags: (typeof TAGS)[keyof typeof TAGS][];
+}
+
+const PROJECTS: Project[] = [
   {
     title: 'create-javalce-app - A CLI to create projects from templates',
     description:
@@ -49,13 +59,22 @@ const PROJECTS = [
     tags: [TAGS.JAVASCRIPT, TAGS.TYPESCRIPT, TAGS.NEXT, TAGS.REACT],
   },
   {
-    title: 'CSS Layout Playground - Your CSS playground for layouting',
+    title: '@javalce/prettier-config - My personal Prettier configuration',
     description:
-      'Un sitio web para probar diferentes técnicas de maquetación con CSS mediante Flexbox. Puedes ver cómo se comportan los elementos al cambiar sus propiedades y valores.',
-    image: '/projects/css-layout-playground.webp',
-    link: 'https://css-layout-playground.vercel.app/',
-    github: 'https://github.com/javalce/css-layout-playground',
-    tags: [TAGS.TYPESCRIPT, TAGS.NEXT, TAGS.TAILWIND],
+      'Mi configuración personal de Prettier para mis proyectos de JavaScript y TypeScript.',
+    image: '/projects/prettier-config.webp',
+    npm: 'https://www.npmjs.com/package/@javalce/prettier-config',
+    github: 'https://github.com/javalce/prettier-config',
+    tags: [TAGS.JAVASCRIPT, TAGS.TYPESCRIPT],
+  },
+  {
+    title: '@javalce/eslint-config - My personal ESLint configuration',
+    description:
+      'Mi configuración personal de ESLint para mis proyectos de JavaScript, TypeScript, React y Next.js.',
+    image: '/projects/eslint-config.webp',
+    npm: 'https://www.npmjs.com/package/@javalce/eslint-config',
+    github: 'https://github.com/javalce/eslint-config',
+    tags: [TAGS.JAVASCRIPT, TAGS.TYPESCRIPT, TAGS.REACT, TAGS.NEXT],
   },
 ];
 ---

@@ -36,6 +36,7 @@ export default tseslint.config(
           next: ['const', 'let', 'var'],
         },
       ],
+      '@typescript-eslint/triple-slash-reference': 'off',
     },
   },
 );

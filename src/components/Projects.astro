@@ -79,12 +79,7 @@ const PROJECTS = [
             <ul class='mb-2 flex flex-row gap-x-2'>
               {tags.map((tag) => (
                 <li>
-                  <span
-                    class={cn(
-                      'flex gap-x-2 rounded-full px-2 py-1 text-xs',
-                      tag.class,
-                    )}
-                  >
+                  <span class={cn('flex gap-x-2 rounded-full px-2 py-1 text-xs', tag.class)}>
                     <tag.icon class='size-4' />
                     {tag.name}
                   </span>

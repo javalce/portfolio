@@ -23,12 +23,8 @@ const navItems = [
 ];
 ---
 
-<header
-  class='fixed top-0 z-10 mx-auto mt-2 flex w-full items-center justify-center'
->
-  <nav
-    class='flex items-center justify-center rounded-full px-3 text-sm font-medium text-gray-200'
-  >
+<header class='fixed top-0 z-10 mx-auto mt-2 flex w-full items-center justify-center'>
+  <nav class='flex items-center justify-center rounded-full px-3 text-sm font-medium text-gray-200'>
     {
       navItems.map(({ title, label, url }) => (
         <a

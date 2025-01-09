@@ -1,17 +1,17 @@
 {
   "name": "javalce-portfolio",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
     "astro": "astro",
+    "build": "astro check && astro build",
+    "dev": "astro dev",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier --write src",
-    "format:check": "prettier --check src"
+    "preview": "astro preview",
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -20,7 +20,7 @@
     "astro": "5.1.4"
   },
   "devDependencies": {
-    "@javalce/eslint-config": "0.8.4",
+    "@javalce/eslint-config": "0.8.5",
     "@javalce/prettier-config": "1.0.3",
     "@types/eslint-plugin-jsx-a11y": "6.10.0",
     "@types/node": "22.10.5",

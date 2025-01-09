@@ -1,13 +1,13 @@
 ---
-import LinkButton from '@components/ui/LinkButton.astro';
-import GithubIcon from '@icons/GithubIcon.astro';
-import JavaScriptIcon from '@icons/JavaScriptIcon.astro';
-import LinkIcon from '@icons/LinkIcon.astro';
-import NextJSIcon from '@icons/NextJSIcon.astro';
-import NpmIcon from '@icons/NpmIcon.astro';
-import ReactIcon from '@icons/ReactIcon.astro';
-import TailwindIcon from '@icons/TailwindIcon.astro';
-import TypeScriptIcon from '@icons/TypeScriptIcon.astro';
+import LinkButton from '@components/ui/link-button.astro';
+import GithubIcon from '@icons/github-icon.astro';
+import JavaScriptIcon from '@icons/java-script-icon.astro';
+import LinkIcon from '@icons/link-icon.astro';
+import NextJSIcon from '@icons/nextjs-icon.astro';
+import NpmIcon from '@icons/npm-icon.astro';
+import ReactIcon from '@icons/react-icon.astro';
+import TailwindIcon from '@icons/tailwind-icon.astro';
+import TypeScriptIcon from '@icons/typescript-icon.astro';
 import { cn } from '@lib/utils';
 
 const TAGS = {
@@ -89,6 +89,7 @@ const PROJECTS: Project[] = [
               class='h-56 w-full object-cover object-top transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105'
               src={image}
               alt={`Captura de pantalla del proyecto ${image}`}
+              loading='lazy'
             />
           </div>
         </div>

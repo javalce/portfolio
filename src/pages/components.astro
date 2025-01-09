@@ -1,13 +1,13 @@
 ---
-import Component from '@components/Component.astro';
-import Badge from '@components/ui/Badge.astro';
-import LinkButton from '@components/ui/LinkButton.astro';
-import LinkInline from '@components/ui/LinkInline.astro';
-import SectionContainer from '@components/ui/SectionContainer.astro';
-import SocialPill from '@components/ui/SocialPill.astro';
-import GithubIcon from '@icons/GithubIcon.astro';
-import LinkedinIcon from '@icons/LinkedinIcon.astro';
-import Layout from '@layouts/Layout.astro';
+import Component from '@components/component.astro';
+import Badge from '@components/ui/badge.astro';
+import LinkButton from '@components/ui/link-button.astro';
+import LinkInline from '@components/ui/link-inline.astro';
+import SectionContainer from '@components/ui/section-container.astro';
+import SocialPill from '@components/ui/social-pill.astro';
+import GithubIcon from '@icons/github-icon.astro';
+import LinkedinIcon from '@icons/linkedin-icon.astro';
+import Layout from '@layouts/layout.astro';
 ---
 
 <Layout title='Design System porfolio' descripcion='El catálogo de componentes de nuestro porfolio'>
@@ -46,10 +46,8 @@ import Layout from '@layouts/Layout.astro';
             stroke-linecap='round'
             stroke-linejoin='round'
           >
-            <>
-              <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-              <path d='M9 6l6 6l-6 6'></path>
-            </>
+            <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+            <path d='M9 6l6 6l-6 6'></path>
           </svg>
         </LinkInline>
       </Component>

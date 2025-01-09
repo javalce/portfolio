@@ -1,9 +1,9 @@
 ---
 import '@fontsource-variable/onest';
 
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import { ViewTransitions } from 'astro:transitions';
+import Footer from '@components/footer.astro';
+import Header from '@components/header.astro';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -22,7 +22,7 @@ const { descripcion, title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class='relative text-white'>
     <div class='fixed left-0 top-0 z-[-2] h-full w-full'>

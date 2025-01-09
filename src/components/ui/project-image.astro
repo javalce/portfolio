@@ -1,0 +1,24 @@
+---
+import { getImage, Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+
+const { src: image } = await getImage({
+  src,
+  format: 'webp',
+  width: 960,
+  height: 540,
+});
+---
+
+<Image
+  class='h-56 w-full object-cover object-top transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105'
+  src={image}
+  alt={`Captura de pantalla del proyecto ${image}`}
+  width={960}
+  height={540}
+/>

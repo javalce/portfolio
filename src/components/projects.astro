@@ -1,5 +1,6 @@
 ---
 import LinkButton from '@components/ui/link-button.astro';
+import ProjectImage from '@components/ui/project-image.astro';
 import GithubIcon from '@icons/github-icon.astro';
 import JavaScriptIcon from '@icons/java-script-icon.astro';
 import LinkIcon from '@icons/link-icon.astro';
@@ -85,12 +86,7 @@ const PROJECTS: Project[] = [
       <article class='group flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
         <div class='w-full md:w-1/2'>
           <div class='relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-xl shadow-xl transition duration-500 ease-in-out sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50'>
-            <img
-              class='h-56 w-full object-cover object-top transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105'
-              src={image}
-              alt={`Captura de pantalla del proyecto ${image}`}
-              loading='lazy'
-            />
+            <ProjectImage src={image} />
           </div>
         </div>
         <div class='w-full md:w-1/2 md:max-w-lg'>

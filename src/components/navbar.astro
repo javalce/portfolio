@@ -1,0 +1,52 @@
+---
+import ThemeToggle from './theme-toggle.astro';
+
+import FileIcon from '@/icons/file-icon.astro';
+import { cn } from '@/lib/utils';
+
+const navItems = [
+  {
+    title: 'Sobre mí',
+    label: 'about.md',
+    url: '/',
+  },
+  {
+    title: 'Experiencia',
+    label: 'experience.md',
+    url: '/experience',
+  },
+  {
+    title: 'Proyectos',
+    label: 'projects.md',
+    url: '/projects',
+  },
+  {
+    title: 'Skills',
+    label: 'skills.md',
+    url: '/skills',
+  },
+];
+---
+
+<nav class='sticky top-0 z-10 flex items-center border-b'>
+  {
+    navItems.map(({ title, label, url }) => (
+      <a
+        class={cn(
+          'hover:text-primary flex items-center gap-2 border-r px-4 py-2 text-sm transition-colors duration-200 ease-in-out',
+          {
+            'border-b-primary border-b-2': url === Astro.url.pathname,
+          },
+        )}
+        aria-label={label}
+        href={url}
+      >
+        <FileIcon class='size-4' />
+        {title}
+      </a>
+    ))
+  }
+  <div class='flex flex-1 flex-row-reverse pr-4'>
+    <ThemeToggle />
+  </div>
+</nav>

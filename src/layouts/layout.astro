@@ -1,8 +1,8 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 
-import Header from '@/components/header.astro';
 import Hero from '@/components/hero.astro';
+import Navbar from '@/components/navbar.astro';
 import '@/styles/global.css';
 import '@fontsource-variable/onest';
 
@@ -29,7 +29,7 @@ const description =
       <Hero />
       <div class='w-full p-0 md:w-4/5'>
         <div class='flex h-[90vh] min-h-full flex-col overflow-y-scroll'>
-          <Header />
+          <Navbar />
           <div class='flex-grow overflow-y-auto p-6'>
             <slot />
           </div>

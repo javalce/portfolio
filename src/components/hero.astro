@@ -1,41 +1,86 @@
 ---
-import Badge from '@components/ui/badge.astro';
-import SocialPill from '@components/ui/social-pill.astro';
-import DownloadIcon from '@icons/download-icon.astro';
-import GithubIcon from '@icons/github-icon.astro';
-import LinkedInIcon from '@icons/linkedin-icon.astro';
+import DownloadIcon from '@/icons/download-icon.astro';
+import GithubIcon from '@/icons/github-icon.astro';
+import LinkedInIcon from '@/icons/linkedin-icon.astro';
+import LocationIcon from '@/icons/location-icon.astro';
+import MessageIcon from '@/icons/message-icon.astro';
+
+const links = [
+  {
+    Icon: GithubIcon,
+    link: 'https://github.com/javalce',
+    text: 'GitHub',
+  },
+  {
+    Icon: LinkedInIcon,
+    link: 'https://linkedin.com/in/javalce',
+    text: 'LinkedIn',
+  },
+  {
+    Icon: MessageIcon,
+    link: 'mailto:javalce29@gmail.com',
+    text: 'Email',
+  },
+  {
+    Icon: DownloadIcon,
+    link: '/CV_Javier_Valero_Cejudo.pdf',
+    text: 'Descargar CV',
+  },
+];
 ---
 
-<div class='max-w-2xl'>
-  <div class='mb-4 flex gap-4'>
-    <img class='size-16 rounded-full shadow-lg' src='/profile.webp' alt='Javier Valero' />
-    <a
-      href='https://linkedin.com/in/javalce'
-      target='_blank'
-      rel='noopener noreferrer'
-      class='flex items-center transition md:justify-center md:hover:scale-105'
-    >
-      <Badge>Disponible para trabajar</Badge>
-    </a>
+<section
+  class='600 flex w-full flex-col justify-between border-b p-8 md:w-2/5 md:border-r md:border-b-0 md:p-6'
+>
+  <div class='flex flex-col items-center gap-6 text-center sm:items-start sm:text-left'>
+    <div class='flex flex-col gap-4 sm:flex-row sm:items-center'>
+      <img
+        class='border-primary mx-auto size-24 rounded-xl border-2 object-cover sm:mx-0'
+        src='/profile.webp'
+        alt='Javier Valero'
+      />
+      <div>
+        <h1 class='relative mb-1 inline-block text-2xl font-extrabold'>Javier Valero</h1>
+        <p class='text-primary mb-2 text-sm'>Desarrollador Full Stack</p>
+        <p class='text-muted-foreground flex items-center justify-center text-sm sm:justify-start'>
+          <LocationIcon class='-mt-0.5 mr-2 inline size-4' /> Valencia, España
+        </p>
+      </div>
+    </div>
+    <p class='text-muted-foreground mt-4 text-sm leading-relaxed'>
+      +2 años de experiencia. Desarrollador Web Full Stack de Valencia, España. Especializado en el
+      desarrollo de aplicaciones para la visualización de datos.
+    </p>
   </div>
-  <h1 class='text-4xl font-bold tracking-tight text-white sm:text-5xl'>Hey, soy Javier Valero</h1>
-  <p
-    class='mt-6 max-w-lg text-xl text-gray-300 [&>strong]:font-semibold [&>strong]:text-yellow-200'
-  >
-    +2 años de experiencia. <strong>Desarrollador Web Full Stack</strong> de Valencia, España. Especializado
-    en el desarrollo de aplicaciones para la visualización de datos.
-  </p>
-  <nav class='mt-8 flex flex-wrap gap-4'>
-    <SocialPill href='https://linkedin.com/in/javalce'>
-      <LinkedInIcon class='size-4' />
-      LinkedIn
-    </SocialPill>
-    <SocialPill href='https://github.com/javalce'>
-      <GithubIcon class='size-4' />
-      GitHub
-    </SocialPill>
-    <SocialPill href='/CV_Javier_Valero_Cejudo.pdf'>
-      <DownloadIcon /> Descargar CV
-    </SocialPill>
-  </nav>
-</div>
+  <footer>
+    <section class='mt-6 rounded-lg border bg-black p-4 text-xs'>
+      <div class='mb-2 flex items-center'>
+        <span class='text-primary mr-2'>$</span>
+        <span class='text-white'>npx connect</span>
+      </div>
+      <div class='mt-2 text-white'>
+        Initializing...
+        <br />
+        Ready to connect.
+        <br />
+        Waiting for contact request...
+      </div>
+    </section>
+    <section class='mt-6 flex flex-wrap justify-between gap-4'>
+      {
+        links.map(({ Icon, link, text }) => (
+          <a
+            href={link}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
+            title={text}
+            aria-label={text}
+          >
+            <Icon class='size-5' />
+          </a>
+        ))
+      }
+    </section>
+  </footer>
+</section>

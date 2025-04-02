@@ -6,23 +6,19 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   {
-    title: 'Sobre mí',
-    label: 'about.md',
+    title: 'sobre mí.md',
     url: '/',
   },
   {
-    title: 'Experiencia',
-    label: 'experience.md',
+    title: 'experiencia.md',
     url: '/experience',
   },
   {
-    title: 'Proyectos',
-    label: 'projects.md',
+    title: 'proyectos.md',
     url: '/projects',
   },
   {
-    title: 'Skills',
-    label: 'skills.md',
+    title: 'skills.md',
     url: '/skills',
   },
 ];
@@ -30,15 +26,15 @@ const navItems = [
 
 <nav class='sticky top-0 z-10 flex items-center border-b'>
   {
-    navItems.map(({ title, label, url }) => (
+    navItems.map(({ title, url }) => (
       <a
         class={cn(
-          'hover:text-primary flex items-center gap-2 border-r px-4 py-2 text-sm transition-colors duration-200 ease-in-out',
+          'hover:text-primary flex items-center gap-2 border-r px-4 py-2 text-xs transition-colors duration-200 ease-in-out',
           {
             'border-b-primary border-b-2': url === Astro.url.pathname,
           },
         )}
-        aria-label={label}
+        aria-label={title}
         href={url}
       >
         <FileIcon class='size-4' />

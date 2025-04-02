@@ -1,5 +1,94 @@
 ---
+import LinkInline from '@/components/ui/link-inline.astro';
 import Layout from '@/layouts/layout.astro';
+
+interface Experience {
+  title: string;
+  company: string;
+  description: string;
+  startDate: string;
+  endDate: string | null;
+  link?: string;
+}
+
+const EXPERIENCE: Experience[] = [
+  {
+    title: 'Desarrollador Web',
+    company: 'SPV SCALA S.L.',
+    description: '',
+    startDate: '2024-10-29',
+    endDate: null,
+  },
+  {
+    title: 'Desarrollador Web',
+    company: 'ETSE-UV',
+    description:
+      'Diseño e implementación de un dashboard para consulta de datos estadísticos con optimización de consultas SQL. Desarrollo de un cuestionario online usando el software redCAP.',
+    startDate: '2022-05-11',
+    endDate: '2024-10-28',
+  },
+  {
+    title: 'Desarrollador Web',
+    company: 'NITCAI Data Management',
+    description:
+      'Implemntación del sistema de tracking de poses de una persona y del dashboard para la visualización de los resultados. Implementación de funciones lambda en AWS para el uso de la aplicación web.',
+    startDate: '2021-11-10',
+    endDate: '2022-04-17',
+  },
+];
 ---
 
-<Layout />
+<Layout>
+  <ol class='relative mt-16'>
+    {
+      EXPERIENCE.map(({ title, company, description, startDate, endDate, link }) => {
+        const startYear = new Date(startDate).getFullYear();
+        const endYear = endDate ? new Date(endDate).getFullYear() : 'Actual';
+
+        return (
+          <li>
+            <div class="md:space-x-4] relative mx-12 grid pb-12 before:absolute before:left-[-30px] before:block before:h-full before:border-l-2 before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10">
+              <div class='relative pb-12 md:col-span-2'>
+                <div class='sticky top-0'>
+                  <span class='text-primary absolute -left-[43px] rounded-full text-5xl'>
+                    &bull;
+                  </span>
+                  <h3 class='text-primary text-xl font-bold'>{title}</h3>
+                  <h4 class='text-xl font-semibold'>{company}</h4>
+                  <div class='text-muted-foreground m-0 p-0 text-sm'>
+                    <time datetime={startDate}>{startYear}</time>
+                    {' - '}
+                    <time datetime={endDate}>{endYear}</time>
+                  </div>
+                </div>
+              </div>
+              <div class='text-muted-foreground relative flex flex-col gap-2 pb-4 md:col-span-3'>
+                {description}
+                {link && (
+                  <LinkInline href={link}>
+                    Saber más{' '}
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      class='w-5'
+                      width='24'
+                      height='24'
+                      viewBox='0 0 24 24'
+                      stroke-width='2'
+                      stroke='currentColor'
+                      fill='none'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                    >
+                      <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                      <path d='M9 6l6 6l-6 6' />
+                    </svg>
+                  </LinkInline>
+                )}
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ol>
+</Layout>

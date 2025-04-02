@@ -1,5 +1,19 @@
 ---
+import SkillItem from '@/components/skill-item.astro';
 import Layout from '@/layouts/layout.astro';
 ---
 
-<Layout />
+<Layout>
+  <section class='flex flex-col gap-6'>
+    <SkillItem
+      title='Lenguajes'
+      tags={['Bash', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java', 'SQL']}
+    />
+    <SkillItem
+      title='Frameworks'
+      tags={['Tailwind CSS', 'Flask', 'FastAPI', 'Spring Boot', 'Angular', 'React', 'Next.js']}
+    />
+    <SkillItem title='Bases de datos' tags={['MySQL', 'PostgreSQL', 'MongoDB']} />
+    <SkillItem title='Otros' tags={['Git', 'GitHub', 'Docker']} />
+  </section>
+</Layout>

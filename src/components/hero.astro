@@ -1,4 +1,5 @@
 ---
+import { profile } from '@/cv.json';
 import DownloadIcon from '@/icons/download-icon.astro';
 import GithubIcon from '@/icons/github-icon.astro';
 import LinkedInIcon from '@/icons/linkedin-icon.astro';
@@ -6,33 +7,15 @@ import LocationIcon from '@/icons/location-icon.astro';
 import MailIcon from '@/icons/mail-icon.astro';
 import NpmIcon from '@/icons/npm-icon.astro';
 
-const links = [
-  {
-    Icon: GithubIcon,
-    link: 'https://github.com/javalce',
-    text: 'GitHub',
-  },
-  {
-    Icon: LinkedInIcon,
-    link: 'https://linkedin.com/in/javalce',
-    text: 'LinkedIn',
-  },
-  {
-    Icon: NpmIcon,
-    link: 'https://npmjs.com/~javalce',
-    text: 'npm',
-  },
-  {
-    Icon: MailIcon,
-    link: 'mailto:javalce29@gmail.com',
-    text: 'Email',
-  },
-  {
-    Icon: DownloadIcon,
-    link: '/CV_Javier_Valero_Cejudo.pdf',
-    text: 'Descargar CV',
-  },
-];
+const SOCIAL_ICONS: Record<string, any> = {
+  GitHub: GithubIcon,
+  LinkedIn: LinkedInIcon,
+  npm: NpmIcon,
+  Email: MailIcon,
+};
+
+const { name, label, location, summary, image, links } = profile;
+const { city, country } = location;
 ---
 
 <section
@@ -42,20 +25,20 @@ const links = [
     <div class='flex flex-col gap-4 sm:flex-row sm:items-center'>
       <img
         class='border-primary mx-auto size-24 rounded-xl border-2 object-cover sm:mx-0'
-        src='/profile.webp'
-        alt='Javier Valero'
+        src={image}
+        alt={name}
       />
       <div>
-        <h1 class='relative mb-1 inline-block text-2xl font-extrabold'>Javier Valero</h1>
-        <p class='text-primary mb-2 text-sm'>Desarrollador Full Stack</p>
+        <h1 class='relative mb-1 inline-block text-2xl font-extrabold'>{name}</h1>
+        <p class='text-primary mb-2 text-sm'>{label}</p>
         <p class='text-muted-foreground flex items-center justify-center text-sm sm:justify-start'>
-          <LocationIcon class='-mt-0.5 mr-2 inline size-4' /> Valencia, España
+          <LocationIcon class='-mt-0.5 mr-2 inline size-4' />
+          {city}, {country}
         </p>
       </div>
     </div>
     <p class='text-muted-foreground mt-4 text-sm leading-relaxed'>
-      +2 años de experiencia. Desarrollador Web Full Stack de Valencia, España. Especializado en el
-      desarrollo de aplicaciones para la visualización de datos.
+      {summary}
     </p>
   </div>
   <footer>
@@ -65,28 +48,42 @@ const links = [
         <span class='text-terminal-foreground'>npx connect</span>
       </div>
       <div class='text-terminal-foreground mt-2'>
-        Initializing...
+        Inicializando...
         <br />
-        Ready to connect.
+        Conexión lista.
         <br />
-        Waiting for contact request...
+        Esperando solicitud de contacto...
       </div>
     </section>
     <section class='mt-6 flex flex-wrap justify-between gap-4'>
       {
-        links.map(({ Icon, link, text }) => (
-          <a
-            href={link}
-            target='_blank'
-            rel='noopener noreferrer'
-            class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
-            title={text}
-            aria-label={text}
-          >
-            <Icon class='size-5' />
-          </a>
-        ))
+        links.map(({ url, name }) => {
+          const Icon = SOCIAL_ICONS[name];
+
+          return (
+            <a
+              href={url}
+              target='_blank'
+              rel='noopener noreferrer'
+              class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
+              title={name}
+              aria-label={name}
+            >
+              <Icon class='size-5' />
+            </a>
+          );
+        })
       }
+      <a
+        href='/CV_Javier_Valero_Cejudo.pdf'
+        target='_blank'
+        rel='noopener noreferrer'
+        class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
+        title='Descargar CV'
+        aria-label='Descargar CV'
+      >
+        <DownloadIcon class='size-5' />
+      </a>
     </section>
   </footer>
 </section>

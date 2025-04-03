@@ -1,0 +1,99 @@
+{
+  "profile": {
+    "name": "Javier Valero",
+    "label": "Desarrollador Full Stack",
+    "summary": "+2 años de experiencia. Desarrollador Web Full Stack de Valencia, España. Especializado en el desarrollo de aplicaciones para la visualización de datos.",
+    "location": {
+      "city": "Valencia",
+      "country": "España"
+    },
+    "about": [
+      "Me llamo Javier Valero y tengo 25 años. Estudié Ingeniería Multimedia y un Máster Universitario en Tecnologías Web, Computación en la Nube y Aplicaciones Móbiles, ambos por la Universitat de València. Posteriormente, he trabajado en el mundo del desarrollo web y disfruto creando experiencias web para los usuarios.",
+      "Desde que completé mis estudios, y también durante su transcurso, me he dedicado a desarrollar aplicaciones web especializadas en la visualización de datos, como por ejemplo, dashboards y aplicaciones de análisis de datos.",
+      "Me encanta trabajar tanto con bases de datos desde el backend como haciendo interfaces de usuario en el frontend, permitiendo a los usuarios interactuar con los diversos conjuntos de información de manera intuitiva y atractiva."
+    ],
+    "image": "/profile.webp",
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/javalce"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com/in/javalce"
+      },
+      {
+        "name": "npm",
+        "url": "https://npmjs.com/~javalce"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:javalce29@gmail.com"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "name": "create-javalce-app",
+      "description": "Un CLI para crear proyectos a partir de plantillas de Next.js, React, etc.",
+      "image": "/projects/create-javalce-app.webp",
+      "npm": "https://www.npmjs.com/package/create-javalce-app",
+      "github": "https://github.com/javalce/create-javalce-app"
+    },
+    {
+      "name": "@javalce/prettier-config",
+      "description": "Mi configuración personal de Prettier para proyectos de JavaScript y TypeScript.",
+      "image": "/projects/prettier-config.webp",
+      "npm": "https://www.npmjs.com/package/@javalce/prettier-config",
+      "github": "https://github.com/javalce/prettier-config"
+    },
+    {
+      "name": "@javalce/eslint-config",
+      "description": "Mi configuración personal de ESLint para proyectos de JavaScript, TypeScript, React y Next.js.",
+      "image": "/projects/eslint-config.webp",
+      "npm": "https://www.npmjs.com/package/@javalce/eslint-config",
+      "github": "https://github.com/javalce/eslint-config"
+    }
+  ],
+  "work": [
+    {
+      "title": "Desarrollador Web",
+      "company": "SPV SCALA S.L.",
+      "description": "",
+      "startDate": "2024-10-29",
+      "endDate": null
+    },
+    {
+      "title": "Desarrollador Web",
+      "company": "ETSE-UV",
+      "description": "Diseño e implementación de un dashboard para consulta de datos estadísticos con optimización de consultas SQL. Desarrollo de un cuestionario online usando el software redCAP.",
+      "startDate": "2022-05-11",
+      "endDate": "2024-10-28"
+    },
+    {
+      "title": "Desarrollador Web",
+      "company": "NITCAI Data Management",
+      "description": "Implemntación del sistema de tracking de poses de una persona y del dashboard para la visualización de los resultados. Implementación de funciones lambda en AWS para el uso de la aplicación web.",
+      "startDate": "2021-11-10",
+      "endDate": "2022-04-17"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Lenguajes",
+      "tags": ["Bash", "HTML", "CSS", "JavaScript", "TypeScript", "Python", "Java", "SQL"]
+    },
+    {
+      "title": "Frameworks",
+      "tags": ["Tailwind CSS", "Flask", "FastAPI", "Spring Boot", "Angular", "React", "Next.js"]
+    },
+    {
+      "title": "Bases de Datos",
+      "tags": ["MySQL", "PostgreSQL", "MongoDB"]
+    },
+    {
+      "title": "Otros",
+      "tags": ["Git", "GitHub", "Docker"]
+    }
+  ]
+}

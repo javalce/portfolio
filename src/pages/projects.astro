@@ -1,45 +1,12 @@
 ---
+import { projects } from '@/cv.json';
 import Layout from '@/layouts/layout.astro';
-
-interface Project {
-  name: string;
-  description: string;
-  image: string;
-  link?: string;
-  github: string;
-  npm?: string;
-}
-
-const PROJECTS: Project[] = [
-  {
-    name: 'create-javalce-app',
-    description: 'Un CLI para crear proyectos a partir de plantillas de Next.js, React, etc.',
-    image: '/projects/create-javalce-app.webp',
-    npm: 'https://www.npmjs.com/package/create-javalce-app',
-    github: 'https://github.com/javalce/create-javalce-app',
-  },
-  {
-    name: '@javalce/prettier-config',
-    description: 'Mi configuración personal de Prettier para proyectos de JavaScript y TypeScript.',
-    image: '/projects/prettier-config.webp',
-    npm: 'https://www.npmjs.com/package/@javalce/prettier-config',
-    github: 'https://github.com/javalce/prettier-config',
-  },
-  {
-    name: '@javalce/eslint-config',
-    description:
-      'Mi configuración personal de ESLint para proyectos de JavaScript, TypeScript, React y Next.js.',
-    image: '/projects/eslint-config.webp',
-    npm: 'https://www.npmjs.com/package/@javalce/eslint-config',
-    github: 'https://github.com/javalce/eslint-config',
-  },
-];
 ---
 
 <Layout>
   <section class='grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4'>
     {
-      PROJECTS.map(({ name, description, github }) => (
+      projects.map(({ name, description, github }) => (
         <article class='flex min-h-[200px] flex-col items-start justify-between rounded-lg border p-4'>
           <div>
             <h3 class='mb-2 text-lg font-semibold'>{name}</h3>

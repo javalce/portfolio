@@ -8,7 +8,7 @@ import Layout from '@/layouts/layout.astro';
     {
       work.map(({ title, company, description, startDate, endDate }) => {
         const startYear = new Date(startDate).getFullYear();
-        const endYear = endDate ? new Date(endDate).getFullYear() : 'Actual';
+        const endYear = endDate !== null ? new Date(endDate).getFullYear() : 'Actual';
 
         return (
           <li>

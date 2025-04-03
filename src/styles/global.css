@@ -5,7 +5,7 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.65 0.2154 16.44);
+  --primary: oklch(0.4 0.2 220);
   --primary-foreground: oklch(0.971 0.013 17.38);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -14,13 +14,13 @@
   --terminal: oklch(1 0 0);
   --terminal-foreground: oklch(0 0 0);
   --border: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.65 0.2154 16.44);
+  --ring: oklch(0.4 0.2 220);
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
+  --background: oklch(0.21 0.006 285.885);
   --foreground: oklch(0.985 0 0);
-  --primary: oklch(0.65 0.2154 16.44);
+  --primary: oklch(0.4 0.2 220);
   --primary-foreground: oklch(0.971 0.013 17.38);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
@@ -29,7 +29,7 @@
   --terminal: oklch(0 0 0);
   --terminal-foreground: oklch(1 0 0);
   --border: oklch(1 0 0 / 10%);
-  --ring: oklch(0.65 0.2154 16.44);
+  --ring: oklch(0.4 0.2 220);
 }
 
 @theme inline {

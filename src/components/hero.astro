@@ -4,9 +4,9 @@ import { profile } from '@/cv.json';
 import DownloadIcon from '@/icons/download-icon.astro';
 import GithubIcon from '@/icons/github-icon.astro';
 import LinkedInIcon from '@/icons/linkedin-icon.astro';
-import LocationIcon from '@/icons/location-icon.astro';
 import MailIcon from '@/icons/mail-icon.astro';
 import NpmIcon from '@/icons/npm-icon.astro';
+import WorldMapIcon from '@/icons/world-map-icon.astro';
 
 const SOCIAL_ICONS: Record<string, any> = {
   GitHub: GithubIcon,
@@ -33,7 +33,7 @@ const { city, country } = location;
         <h1 class='relative mb-1 inline-block text-2xl font-extrabold'>{name}</h1>
         <p class='text-primary mb-2 text-sm'>{label}</p>
         <p class='text-muted-foreground flex items-center justify-center text-sm sm:justify-start'>
-          <LocationIcon class='-mt-0.5 mr-2 inline size-4' />
+          <WorldMapIcon class='-mt-0.5 mr-2 inline size-4' />
           {city}, {country}
         </p>
       </div>

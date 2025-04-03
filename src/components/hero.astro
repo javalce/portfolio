@@ -1,4 +1,5 @@
 ---
+import SocialLink from '@/components/social-link.astro';
 import { profile } from '@/cv.json';
 import DownloadIcon from '@/icons/download-icon.astro';
 import GithubIcon from '@/icons/github-icon.astro';
@@ -14,7 +15,7 @@ const SOCIAL_ICONS: Record<string, any> = {
   Email: MailIcon,
 };
 
-const { name, label, location, summary, image, links } = profile;
+const { name, label, location, summary, image, links, resumee } = profile;
 const { city, country } = location;
 ---
 
@@ -37,7 +38,7 @@ const { city, country } = location;
         </p>
       </div>
     </div>
-    <p class='text-muted-foreground mt-4 text-sm leading-relaxed'>
+    <p class='text-muted-foreground mt-4 text-sm leading-relaxed text-pretty'>
       {summary}
     </p>
   </div>
@@ -61,29 +62,15 @@ const { city, country } = location;
           const Icon = SOCIAL_ICONS[name];
 
           return (
-            <a
-              href={url}
-              target='_blank'
-              rel='noopener noreferrer'
-              class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
-              title={name}
-              aria-label={name}
-            >
+            <SocialLink href={url} name={name}>
               <Icon class='size-5' />
-            </a>
+            </SocialLink>
           );
         })
       }
-      <a
-        href='/CV_Javier_Valero_Cejudo.pdf'
-        target='_blank'
-        rel='noopener noreferrer'
-        class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
-        title='Descargar CV'
-        aria-label='Descargar CV'
-      >
+      <SocialLink href={resumee} name='Descargar CV' aria-label='Descargar CV'>
         <DownloadIcon class='size-5' />
-      </a>
+      </SocialLink>
     </section>
   </footer>
 </section>

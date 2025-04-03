@@ -1,19 +1,18 @@
 ---
-import SkillItem from '@/components/skill-item.astro';
+import SkillTagList from '@/components/skill-tag-list.astro';
+import { skills } from '@/cv.json';
 import Layout from '@/layouts/layout.astro';
 ---
 
 <Layout>
   <section class='flex flex-col gap-6'>
-    <SkillItem
-      title='Lenguajes'
-      tags={['Bash', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java', 'SQL']}
-    />
-    <SkillItem
-      title='Frameworks'
-      tags={['Tailwind CSS', 'Flask', 'FastAPI', 'Spring Boot', 'Angular', 'React', 'Next.js']}
-    />
-    <SkillItem title='Bases de datos' tags={['MySQL', 'PostgreSQL', 'MongoDB']} />
-    <SkillItem title='Otros' tags={['Git', 'GitHub', 'Docker']} />
+    {
+      skills.map(({ title, tags }) => (
+        <article class='space-y-2'>
+          <h2 class='text-2xl font-bold'>{title}</h2>
+          <SkillTagList tags={tags} />
+        </article>
+      ))
+    }
   </section>
 </Layout>

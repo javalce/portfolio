@@ -19,13 +19,13 @@ import ReactIcon from '@/icons/react-icon.astro';
 import SpringBootIcon from '@/icons/spring-boot-icon.astro';
 import TailwindIcon from '@/icons/tailwind-icon.astro';
 import TypescriptIcon from '@/icons/typescript-icon.astro';
+import type { Skill } from '@/types';
 
 interface Props {
-  title: string;
-  tags: string[];
+  tags: Skill['tags'];
 }
 
-const { title, tags } = Astro.props;
+const { tags } = Astro.props;
 
 const SKILLS_ICONS: Record<string, any> = {
   GitHub: GithubIcon,
@@ -52,20 +52,17 @@ const SKILLS_ICONS: Record<string, any> = {
 };
 ---
 
-<article class='space-y-2'>
-  <h2 class='text-2xl font-bold'>{title}</h2>
-  <ul class='flex flex-wrap gap-2'>
-    {
-      tags.map((tag) => {
-        const iconName = tag === 'Next.js' ? 'Next' : tag;
-        const Icon = SKILLS_ICONS[iconName];
+<ul class='flex flex-wrap gap-2'>
+  {
+    tags.map((tag) => {
+      const iconName = tag === 'Next.js' ? 'Next' : tag;
+      const Icon = SKILLS_ICONS[iconName];
 
-        return (
-          <li class='bg-accent flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm'>
-            {Icon && <Icon class='size-4' />} <span>{tag}</span>
-          </li>
-        );
-      })
-    }
-  </ul>
-</article>
+      return (
+        <li class='bg-accent flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm'>
+          {Icon && <Icon class='size-4' />} <span>{tag}</span>
+        </li>
+      );
+    })
+  }
+</ul>

@@ -2,7 +2,7 @@
   "profile": {
     "name": "Javier Valero",
     "label": "Desarrollador Full Stack",
-    "summary": "+2 años de experiencia. Desarrollador Web Full Stack de Valencia, España. Especializado en el desarrollo de aplicaciones para la visualización de datos.",
+    "summary": "+2 años de experiencia como Desarrollador Web, apasionado por crear aplicaciones web modernas y por la visualización de datos. Siempre buscando mejorar la experiencia de los usuarios con las aplicaciones web.",
     "location": {
       "city": "Valencia",
       "country": "España"
@@ -30,7 +30,8 @@
         "name": "Email",
         "url": "mailto:javalce29@gmail.com"
       }
-    ]
+    ],
+    "resumee": "/CV_Javier_Valero_Cejudo.pdf"
   },
   "projects": [
     {
@@ -59,21 +60,21 @@
     {
       "title": "Desarrollador Web",
       "company": "SPV SCALA S.L.",
-      "description": "",
+      "description": "Desarrollé un rest API para la subida de audios y contenidos de chats a AWS S3. Implementé funciones lambda en AWS para la transcripción y anonimización de los audios a texto.",
       "startDate": "2024-10-29",
-      "endDate": null
+      "endDate": "2025-03-25"
     },
     {
       "title": "Desarrollador Web",
       "company": "ETSE-UV",
-      "description": "Diseño e implementación de un dashboard para consulta de datos estadísticos con optimización de consultas SQL. Desarrollo de un cuestionario online usando el software redCAP.",
+      "description": "Desarrollé un dashboard para consultar datos estadísticos. Optimicé las consultas SQL. Implementé un cuestionario online usando el software redCAP.",
       "startDate": "2022-05-11",
       "endDate": "2024-10-28"
     },
     {
       "title": "Desarrollador Web",
       "company": "NITCAI Data Management",
-      "description": "Implemntación del sistema de tracking de poses de una persona y del dashboard para la visualización de los resultados. Implementación de funciones lambda en AWS para el uso de la aplicación web.",
+      "description": "Desarrollé un sistema de tracking de poses de una persona mediante una webcam y un dashboard para la visualización de los resultados. Implementé funciones lambda en AWS para el uso de la aplicación web.",
       "startDate": "2021-11-10",
       "endDate": "2022-04-17"
     }
@@ -92,7 +93,7 @@
       "tags": ["MySQL", "PostgreSQL", "MongoDB"]
     },
     {
-      "title": "Otros",
+      "title": "DevOps",
       "tags": ["Git", "GitHub", "Docker"]
     }
   ]

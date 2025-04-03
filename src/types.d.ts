@@ -9,6 +9,7 @@ export interface Profile {
   about: string[];
   image: string;
   links: Link[];
+  resumee: string;
 }
 
 export interface Link {

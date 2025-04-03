@@ -20,8 +20,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: '@javalce/prettier-config',
-    description:
-      'Mi configuración personal de Prettier para mis proyectos de JavaScript y TypeScript.',
+    description: 'Mi configuración personal de Prettier para proyectos de JavaScript y TypeScript.',
     image: '/projects/prettier-config.webp',
     npm: 'https://www.npmjs.com/package/@javalce/prettier-config',
     github: 'https://github.com/javalce/prettier-config',
@@ -29,7 +28,7 @@ const PROJECTS: Project[] = [
   {
     name: '@javalce/eslint-config',
     description:
-      'Mi configuración personal de ESLint para mis proyectos de JavaScript, TypeScript, React y Next.js.',
+      'Mi configuración personal de ESLint para proyectos de JavaScript, TypeScript, React y Next.js.',
     image: '/projects/eslint-config.webp',
     npm: 'https://www.npmjs.com/package/@javalce/eslint-config',
     github: 'https://github.com/javalce/eslint-config',
@@ -40,15 +39,15 @@ const PROJECTS: Project[] = [
 <Layout>
   <section class='grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4'>
     {
-      PROJECTS.map(({ name, description, link, github }) => (
-        <article class='flex min-h-[250px] flex-col items-start justify-between rounded-lg border p-4'>
+      PROJECTS.map(({ name, description, github }) => (
+        <article class='flex min-h-[200px] flex-col items-start justify-between rounded-lg border p-4'>
           <div>
-            <h3 class='mb-2 text-xl font-semibold'>{name}</h3>
-            <p class='text-muted-foreground'>{description}</p>
+            <h3 class='mb-2 text-lg font-semibold'>{name}</h3>
+            <p class='text-muted-foreground text-sm'>{description}</p>
           </div>
           {github && (
             <a
-              href={link}
+              href={github}
               title='Ver proyecto'
               target='_blank'
               class='hover:text-primary hover:border-primary mt-4 w-full cursor-pointer rounded-lg border px-4 py-2.5 text-center'

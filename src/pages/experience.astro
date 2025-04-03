@@ -1,5 +1,4 @@
 ---
-import LinkInline from '@/components/ui/link-inline.astro';
 import Layout from '@/layouts/layout.astro';
 
 interface Experience {
@@ -8,7 +7,6 @@ interface Experience {
   description: string;
   startDate: string;
   endDate: string | null;
-  link?: string;
 }
 
 const EXPERIENCE: Experience[] = [
@@ -41,7 +39,7 @@ const EXPERIENCE: Experience[] = [
 <Layout>
   <ol class='relative mt-16'>
     {
-      EXPERIENCE.map(({ title, company, description, startDate, endDate, link }) => {
+      EXPERIENCE.map(({ title, company, description, startDate, endDate }) => {
         const startYear = new Date(startDate).getFullYear();
         const endYear = endDate ? new Date(endDate).getFullYear() : 'Actual';
 
@@ -64,26 +62,6 @@ const EXPERIENCE: Experience[] = [
               </div>
               <div class='text-muted-foreground relative flex flex-col gap-2 pb-4 md:col-span-3'>
                 {description}
-                {link && (
-                  <LinkInline href={link}>
-                    Saber más{' '}
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      class='w-5'
-                      width='24'
-                      height='24'
-                      viewBox='0 0 24 24'
-                      stroke-width='2'
-                      stroke='currentColor'
-                      fill='none'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    >
-                      <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-                      <path d='M9 6l6 6l-6 6' />
-                    </svg>
-                  </LinkInline>
-                )}
               </div>
             </div>
           </li>

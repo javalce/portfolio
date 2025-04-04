@@ -36,21 +36,21 @@
   "projects": [
     {
       "name": "create-javalce-app",
-      "description": "Un CLI para crear proyectos a partir de plantillas de Next.js, React, etc.",
+      "description": "CLI para crear proyectos basados en templates de React y Next.js. Con Tailwind CSS, ESLint y Prettier.",
       "image": "/projects/create-javalce-app.webp",
       "npm": "https://www.npmjs.com/package/create-javalce-app",
       "github": "https://github.com/javalce/create-javalce-app"
     },
     {
       "name": "@javalce/prettier-config",
-      "description": "Mi configuración personal de Prettier para proyectos de JavaScript y TypeScript.",
+      "description": "Configuración de Prettier para proyectos de JavaScript/TypeScript con mis reglas de estilo predeterminadas.",
       "image": "/projects/prettier-config.webp",
       "npm": "https://www.npmjs.com/package/@javalce/prettier-config",
       "github": "https://github.com/javalce/prettier-config"
     },
     {
       "name": "@javalce/eslint-config",
-      "description": "Mi configuración personal de ESLint para proyectos de JavaScript, TypeScript, React y Next.js.",
+      "description": "Configuración de ESLint para proyectos de JavaScript, TypeScript, React, Next.js, etc. con mis criterios de desarrollo predeterminados.",
       "image": "/projects/eslint-config.webp",
       "npm": "https://www.npmjs.com/package/@javalce/eslint-config",
       "github": "https://github.com/javalce/eslint-config"
@@ -60,14 +60,14 @@
     {
       "title": "Desarrollador Web",
       "company": "SPV SCALA S.L.",
-      "description": "Desarrollé un rest API para la subida de audios y contenidos de chats a AWS S3. Implementé funciones lambda en AWS para la transcripción y anonimización de los audios a texto.",
+      "description": "Migré información de un esquema antiguo de base de datos de PostgreSQL a uno nuevo. Desarrollé un rest API para la subida de audios y contenidos de chats a AWS S3. Implementé funciones lambda en AWS para la transcripción y anonimización de los audios a texto.",
       "startDate": "2024-10-29",
       "endDate": "2025-03-25"
     },
     {
       "title": "Desarrollador Web",
       "company": "ETSE-UV",
-      "description": "Desarrollé un dashboard para consultar datos estadísticos. Optimicé las consultas SQL. Implementé un cuestionario online usando el software redCAP.",
+      "description": "Desarrollé un dashboard para consultar datos estadísticos y optimicé consultas SQL para obtención de datos. Diseñé e implementé un formulario para la recopilación de datos.",
       "startDate": "2022-05-11",
       "endDate": "2024-10-28"
     },
@@ -86,7 +86,16 @@
     },
     {
       "title": "Frameworks",
-      "tags": ["Tailwind CSS", "Flask", "FastAPI", "Spring Boot", "Angular", "React", "Next.js"]
+      "tags": [
+        "Tailwind CSS",
+        "Flask",
+        "FastAPI",
+        "Spring Boot",
+        "Angular",
+        "React",
+        "Next.js",
+        "React Native"
+      ]
     },
     {
       "title": "Bases de Datos",
@@ -94,7 +103,7 @@
     },
     {
       "title": "DevOps",
-      "tags": ["Git", "GitHub", "Docker"]
+      "tags": ["Git", "GitHub", "Docker", "AWS"]
     }
   ]
 }

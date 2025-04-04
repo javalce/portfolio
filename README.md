@@ -1,8 +1,8 @@
 # Porfolio
 
 <div align="center">
-  <a href="https://javalce-porfolio.vercel.app">
-    <img src="./public/porfolio.webp">
+  <a href="https://javalce.vercel.app">
+    <img src="./public/portfolio.webp">
   </a>
   <p />
 </div>

@@ -1,41 +1,76 @@
 ---
-import Badge from '@components/ui/badge.astro';
-import SocialPill from '@components/ui/social-pill.astro';
-import DownloadIcon from '@icons/download-icon.astro';
-import GithubIcon from '@icons/github-icon.astro';
-import LinkedInIcon from '@icons/linkedin-icon.astro';
+import SocialLink from '@/components/social-link.astro';
+import { profile } from '@/cv.json';
+import DownloadIcon from '@/icons/download-icon.astro';
+import GithubIcon from '@/icons/github-icon.astro';
+import LinkedInIcon from '@/icons/linkedin-icon.astro';
+import MailIcon from '@/icons/mail-icon.astro';
+import NpmIcon from '@/icons/npm-icon.astro';
+import WorldMapIcon from '@/icons/world-map-icon.astro';
+
+const SOCIAL_ICONS: Record<string, any> = {
+  GitHub: GithubIcon,
+  LinkedIn: LinkedInIcon,
+  npm: NpmIcon,
+  Email: MailIcon,
+};
+
+const { name, label, location, summary, image, links, resumee } = profile;
+const { city, country } = location;
 ---
 
-<div class='max-w-2xl'>
-  <div class='mb-4 flex gap-4'>
-    <img class='size-16 rounded-full shadow-lg' src='/profile.webp' alt='Javier Valero' />
-    <a
-      href='https://linkedin.com/in/javalce'
-      target='_blank'
-      rel='noopener noreferrer'
-      class='flex items-center transition md:justify-center md:hover:scale-105'
-    >
-      <Badge>Disponible para trabajar</Badge>
-    </a>
+<section
+  class='600 flex w-full flex-col justify-between border-b p-8 md:w-2/5 md:border-r md:border-b-0 md:p-6'
+>
+  <div class='flex flex-col items-center gap-6 text-center sm:items-start sm:text-left'>
+    <div class='flex flex-col gap-4 sm:flex-row sm:items-center'>
+      <img
+        class='border-primary mx-auto size-24 rounded-xl border-2 object-cover sm:mx-0'
+        src={image}
+        alt={name}
+      />
+      <div>
+        <h1 class='relative mb-1 inline-block text-2xl font-extrabold'>{name}</h1>
+        <p class='text-primary mb-2 text-sm'>{label}</p>
+        <p class='text-muted-foreground flex items-center justify-center text-sm sm:justify-start'>
+          <WorldMapIcon class='-mt-0.5 mr-2 inline size-4' />
+          {city}, {country}
+        </p>
+      </div>
+    </div>
+    <p class='text-muted-foreground mt-4 text-sm leading-relaxed text-pretty'>
+      {summary}
+    </p>
   </div>
-  <h1 class='text-4xl font-bold tracking-tight text-white sm:text-5xl'>Hey, soy Javier Valero</h1>
-  <p
-    class='mt-6 max-w-lg text-xl text-gray-300 [&>strong]:font-semibold [&>strong]:text-yellow-200'
-  >
-    +2 años de experiencia. <strong>Desarrollador Web Full Stack</strong> de Valencia, España. Especializado
-    en el desarrollo de aplicaciones para la visualización de datos.
-  </p>
-  <nav class='mt-8 flex flex-wrap gap-4'>
-    <SocialPill href='https://linkedin.com/in/javalce'>
-      <LinkedInIcon class='size-4' />
-      LinkedIn
-    </SocialPill>
-    <SocialPill href='https://github.com/javalce'>
-      <GithubIcon class='size-4' />
-      GitHub
-    </SocialPill>
-    <SocialPill href='/CV_Javier_Valero_Cejudo.pdf'>
-      <DownloadIcon /> Descargar CV
-    </SocialPill>
-  </nav>
-</div>
+  <footer>
+    <section class='bg-terminal mt-6 rounded-lg border p-4 text-xs'>
+      <div class='mb-2 flex items-center'>
+        <span class='text-primary mr-2'>$</span>
+        <span class='text-terminal-foreground'>npx connect</span>
+      </div>
+      <div class='text-terminal-foreground mt-2'>
+        Inicializando...
+        <br />
+        Conexión lista.
+        <br />
+        Esperando solicitud de contacto...
+      </div>
+    </section>
+    <section class='mt-6 flex flex-wrap justify-between gap-4'>
+      {
+        links.map(({ url, name }) => {
+          const Icon = SOCIAL_ICONS[name];
+
+          return (
+            <SocialLink href={url} name={name}>
+              <Icon class='size-5' />
+            </SocialLink>
+          );
+        })
+      }
+      <SocialLink href={resumee} name='Descargar CV' aria-label='Descargar CV'>
+        <DownloadIcon class='size-5' />
+      </SocialLink>
+    </section>
+  </footer>
+</section>

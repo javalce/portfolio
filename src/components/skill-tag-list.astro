@@ -1,0 +1,71 @@
+---
+import AngularIcon from '@/icons/angular-icon.astro';
+import AwsIcon from '@/icons/aws-icon.astro';
+import BashIcon from '@/icons/bash-icon.astro';
+import CssIcon from '@/icons/css-icon.astro';
+import DockerIcon from '@/icons/docker-icon.astro';
+import FastApiIcon from '@/icons/fastapi-icon.astro';
+import FlaskIcon from '@/icons/flask-icon.astro';
+import GitIcon from '@/icons/git-icon.astro';
+import GithubIcon from '@/icons/github-icon.astro';
+import HtmlIcon from '@/icons/html-icon.astro';
+import JavaIcon from '@/icons/java-icon.astro';
+import JavaScriptIcon from '@/icons/javascript-icon.astro';
+import MongoDbIcon from '@/icons/mongodb-icon.astro';
+import MySQLIcon from '@/icons/mysql-icon.astro';
+import NextjsIcon from '@/icons/nextjs-icon.astro';
+import PostgresqlIcon from '@/icons/postgresql-icon.astro';
+import PythonIcon from '@/icons/python-icon.astro';
+import ReactIcon from '@/icons/react-icon.astro';
+import SpringBootIcon from '@/icons/spring-boot-icon.astro';
+import TailwindIcon from '@/icons/tailwind-icon.astro';
+import TypescriptIcon from '@/icons/typescript-icon.astro';
+import type { Skill } from '@/types';
+
+interface Props {
+  tags: Skill['tags'];
+}
+
+const { tags } = Astro.props;
+
+const SKILLS_ICONS: Record<string, any> = {
+  GitHub: GithubIcon,
+  Next: NextjsIcon,
+  JavaScript: JavaScriptIcon,
+  TypeScript: TypescriptIcon,
+  'Tailwind CSS': TailwindIcon,
+  Python: PythonIcon,
+  Java: JavaIcon,
+  SQL: MySQLIcon,
+  MySQL: MySQLIcon,
+  Bash: BashIcon,
+  HTML: HtmlIcon,
+  CSS: CssIcon,
+  Git: GitIcon,
+  React: ReactIcon,
+  'React Native': ReactIcon,
+  Flask: FlaskIcon,
+  FastAPI: FastApiIcon,
+  'Spring Boot': SpringBootIcon,
+  Angular: AngularIcon,
+  PostgreSQL: PostgresqlIcon,
+  MongoDB: MongoDbIcon,
+  Docker: DockerIcon,
+  AWS: AwsIcon,
+};
+---
+
+<ul class='flex flex-wrap gap-2'>
+  {
+    tags.map((tag) => {
+      const iconName = tag === 'Next.js' ? 'Next' : tag;
+      const Icon = SKILLS_ICONS[iconName];
+
+      return (
+        <li class='bg-accent flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm'>
+          {Icon && <Icon class='size-4' />} <span>{tag}</span>
+        </li>
+      );
+    })
+  }
+</ul>

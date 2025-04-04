@@ -4,12 +4,7 @@
     "types": ["astro/client"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@icons/*": ["src/icons/*"],
-      "@lib/*": ["src/lib/*"],
-      "@models/*": ["src/models/*"]
+      "@/*": ["src/*"]
     }
   }
 }

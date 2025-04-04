@@ -1,47 +1,40 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
+import Hero from '@/components/hero.astro';
+import Navbar from '@/components/navbar.astro';
 import '@/styles/global.css';
 import '@fontsource-variable/onest';
 
-import Footer from '@components/footer.astro';
-import Header from '@components/header.astro';
-import { ClientRouter } from 'astro:transitions';
-
-interface Props {
-  title: string;
-  descripcion: string;
-}
-
-const { descripcion, title } = Astro.props;
+const title = 'Porfolio de javalce - Desarrollador y Programador Web con 2 años de expediencia';
+const description =
+  'Contrata a javalce para crear tu aplicación web. Desarrollador Web Full Stack. Especializado en crear aplicaciones para la visualización de datos.';
 ---
 
 <!doctype html>
-<html lang='es'>
+<html lang='es' class='dark'>
   <head>
     <meta charset='UTF-8' />
-    <meta name='description' content={descripcion} />
+    <meta name='description' content={description} />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
   </head>
-  <body class='relative text-white'>
-    <div class='fixed top-0 left-0 z-[-2] h-full w-full'>
-      <div class='relative h-full w-full bg-slate-950'>
-        <div
-          class='absolute top-0 right-0 bottom-0 left-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'
-        >
+  <body class='flex min-h-screen items-center justify-center p-4'>
+    <main
+      class='dark:shadow-foreground/10 relative mb-12 flex max-w-full flex-col overflow-hidden rounded-2xl border shadow-2xl md:mb-4 md:max-w-7xl md:flex-row'
+    >
+      <Hero />
+      <div class='w-full p-0 md:w-4/5'>
+        <div class='flex h-[90vh] min-h-full flex-col'>
+          <Navbar />
+          <div class='flex-grow overflow-y-auto p-6'>
+            <slot />
+          </div>
         </div>
       </div>
-    </div>
-    <Header />
-    <slot />
-    <Footer />
-    <style is:global>
-      html {
-        font-family: 'Onest Variable', system-ui, sans-serif;
-        scroll-behavior: smooth;
-      }
-    </style>
+    </main>
   </body>
 </html>

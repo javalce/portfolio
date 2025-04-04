@@ -16,14 +16,14 @@
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@fontsource-variable/onest": "5.2.7",
-    "@tailwindcss/vite": "4.1.0",
-    "astro": "5.5.6"
+    "@tailwindcss/vite": "4.1.2",
+    "astro": "5.6.1"
   },
   "devDependencies": {
     "@javalce/eslint-config": "0.10.1",
     "@javalce/prettier-config": "2.1.0",
     "@types/eslint-plugin-jsx-a11y": "6.10.0",
-    "@types/node": "22.13.17",
+    "@types/node": "22.14.0",
     "astro-eslint-parser": "1.2.2",
     "clsx": "2.1.1",
     "eslint": "9.23.0",
@@ -34,7 +34,7 @@
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.11",
     "tailwind-merge": "3.1.0",
-    "tailwindcss": "4.1.0",
+    "tailwindcss": "4.1.2",
     "typescript": "5.8.2"
   }
 }

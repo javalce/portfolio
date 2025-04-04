@@ -4,6 +4,10 @@ import ThemeToggle from './theme-toggle.astro';
 import FileIcon from '@/icons/file-icon.astro';
 import { cn } from '@/lib/utils';
 
+const { pathname } = Astro.url;
+const normalizedPathname =
+  pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
 const navItems = [
   {
     title: 'README.md',
@@ -28,17 +32,16 @@ const navItems = [
   {
     navItems.map(({ title, url }) => (
       <a
+        href={url}
         class={cn(
           'hover:text-primary flex items-center gap-2 border-r px-4 py-2 text-xs transition-colors duration-200 ease-in-out',
           {
-            'border-b-primary border-b-2': url === Astro.url.pathname,
+            'border-b-primary border-b-2': normalizedPathname === url,
           },
         )}
         aria-label={title}
-        href={url}
       >
-        <FileIcon class='size-4' />
-        {title}
+        <FileIcon class='size-4' /> {title}
       </a>
     ))
   }

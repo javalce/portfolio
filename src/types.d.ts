@@ -49,5 +49,6 @@ export interface CV {
 declare module '@/cv.json' {
   const value: CV;
 
+  // eslint-disable-next-line import-x/no-default-export -- Default export is used for JSON module compatibility
   export default value;
 }

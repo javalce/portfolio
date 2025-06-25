@@ -1,7 +1,9 @@
-import { defineConfig } from '@javalce/prettier-config';
+import prettierConfig from '@javalce/prettier-config';
 
-export default defineConfig({
-  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
+export default {
+  ...prettierConfig,
+  plugins: [...prettierConfig.plugins, 'prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   tailwindStylesheet: './src/styles/globals.css',
   overrides: [
     {
@@ -11,4 +13,4 @@ export default defineConfig({
       },
     },
   ],
-});
+};

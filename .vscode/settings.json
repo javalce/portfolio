@@ -11,5 +11,6 @@
   "files.associations": {
     "global.css": "tailwindcss"
   },
-  "prettier.documentSelectors": ["**/*.astro"]
+  "prettier.documentSelectors": ["**/*.astro"],
+  "tailwindCSS.classFunctions": ["tv"]
 }

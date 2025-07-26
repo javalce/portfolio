@@ -8,8 +8,8 @@ interface Props extends Omit<HTMLAttributes<'button'>, 'type' | 'id' | 'role'> {
 
 const tabsTrigger = tv({
   base: [
-    'transition-colors inline-flex grow items-center justify-center rounded-sm px-3 py-1.5 font-medium whitespace-nowrap',
-    'data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm',
+    'flex items-center gap-2 whitespace-nowrap border-r px-3 py-1.5 text-xs font-medium transition-colors',
+    'data-[state=active]:border-b-primary data-[state=inactive]:hover:text-primary data-[state=inactive]:cursor-pointer data-[state=active]:border-b-2',
     'focus-visible:outline-outline focus-visible:outline-2 focus-visible:outline-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
   ],

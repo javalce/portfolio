@@ -1,12 +1,47 @@
 ---
-import { profile } from '@/cv.json';
+import About from '@/components/sections/about.astro';
+import Experience from '@/components/sections/experience.astro';
+import Projects from '@/components/sections/projects.astro';
+import Skills from '@/components/sections/skills.astro';
+import ThemeToggle from '@/components/theme-toggle.astro';
+import { Tabs } from '@/components/ui/tabs';
+import TabsContent from '@/components/ui/tabs/tabs-content.astro';
+import TabsList from '@/components/ui/tabs/tabs-list.astro';
+import TabsTrigger from '@/components/ui/tabs/tabs-trigger.astro';
+import FileIcon from '@/icons/file-icon.astro';
 import Layout from '@/layouts/layout.astro';
-
-const { about } = profile;
 ---
 
 <Layout>
-  <section class='text-muted-foreground text-pretty [&>p]:mb-4'>
-    {about.map((text) => <p>{text}</p>)}
-  </section>
+  <Tabs defaultValue='experience'>
+    <TabsList>
+      <TabsTrigger value='experience'>
+        <FileIcon class='size-4' /> experiencia.md
+      </TabsTrigger>
+      <TabsTrigger value='projects'>
+        <FileIcon class='size-4' /> proyectos.md
+      </TabsTrigger>
+      <TabsTrigger value='skills'>
+        <FileIcon class='size-4' /> skills.md
+      </TabsTrigger>
+      <TabsTrigger value='about'>
+        <FileIcon class='size-4' /> README.md
+      </TabsTrigger>
+      <div class='flex flex-1 flex-row-reverse pr-6'>
+        <ThemeToggle />
+      </div>
+    </TabsList>
+    <TabsContent value='experience'>
+      <Experience />
+    </TabsContent>
+    <TabsContent value='projects'>
+      <Projects />
+    </TabsContent>
+    <TabsContent value='skills'>
+      <Skills />
+    </TabsContent>
+    <TabsContent value='about'>
+      <About />
+    </TabsContent>
+  </Tabs>
 </Layout>

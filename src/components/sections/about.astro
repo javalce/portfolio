@@ -1,0 +1,9 @@
+---
+import { profile } from '@/cv.json';
+
+const { about } = profile;
+---
+
+<section class='text-muted-foreground mt-8 text-pretty [&>p]:mb-4'>
+  {about.map((text) => <p>{text}</p>)}
+</section>

@@ -1,10 +1,9 @@
 ---
 import { work } from '@/cv.json';
-import Layout from '@/layouts/layout.astro';
 ---
 
-<Layout>
-  <ol class='relative mt-16'>
+<section>
+  <ol class='relative mt-8'>
     {
       work.map(({ title, company, description, startDate, endDate }) => {
         const startYear = new Date(startDate).getFullYear();
@@ -36,4 +35,4 @@ import Layout from '@/layouts/layout.astro';
       })
     }
   </ol>
-</Layout>
+</section>

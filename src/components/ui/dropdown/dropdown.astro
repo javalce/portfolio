@@ -237,6 +237,7 @@ const { class: className, openOnHover = false, closeDelay = 200, ...rest } = Ast
             e.preventDefault();
             this.items[currentIdx].click();
           }
+
           break;
       }
     }
@@ -322,6 +323,7 @@ const { class: className, openOnHover = false, closeDelay = 200, ...rest } = Ast
         if (this.isOpen) {
           this.closeDropdown();
         }
+
         this.closeTimerRef = null;
       }, this.closeDelay);
     }

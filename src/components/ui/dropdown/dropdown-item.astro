@@ -1,5 +1,6 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types';
+
 import { tv } from 'tailwind-variants';
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {

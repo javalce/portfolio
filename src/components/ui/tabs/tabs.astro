@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+
 import { tv } from 'tailwind-variants';
 
 interface Props extends HTMLAttributes<'div'> {
@@ -146,8 +147,10 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
               break;
             }
           }
+
           break;
         }
+
         case 'ArrowLeft': {
           for (let i = 1; i < this.triggers.length; i++) {
             const index = (this.currentTabIndex - i + this.triggers.length) % this.triggers.length;
@@ -157,8 +160,10 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
               break;
             }
           }
+
           break;
         }
+
         case 'Home': {
           for (let i = 0; i < this.triggers.length; i++) {
             if (!this.triggers[i].disabled) {
@@ -166,8 +171,10 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
               break;
             }
           }
+
           break;
         }
+
         case 'End': {
           for (let i = this.triggers.length - 1; i >= 0; i--) {
             if (!this.triggers[i].disabled) {
@@ -175,8 +182,10 @@ const { defaultValue, syncKey, class: className, ...rest } = Astro.props;
               break;
             }
           }
+
           break;
         }
+
         default:
           return;
       }

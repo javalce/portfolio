@@ -4,7 +4,7 @@ import prettierConfig from '@javalce/prettier-config';
 export default {
   ...prettierConfig,
   plugins: [...prettierConfig.plugins, 'prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
-  tailwindStylesheet: './src/styles/globals.css',
+  tailwindStylesheet: './src/styles/global.css',
   tailwindFunctions: ['tv'],
   overrides: [
     {

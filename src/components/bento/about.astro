@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import type { Profile } from '@/types';
+
+import { Item, ItemContent, ItemDescription, ItemTitle } from '../ui/item';
+
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'>, Pick<Profile, 'about'> {}
+
+const { about, class: className } = Astro.props;
+---
+
+<Item class:list={['items-start', className]} variant='outline'>
+  <ItemContent>
+    <ItemTitle class='text-3xl'>About Me</ItemTitle>
+    {about.map((text) => <ItemDescription class='mt-4 line-clamp-none'>{text}</ItemDescription>)}
+  </ItemContent>
+</Item>

@@ -49,6 +49,5 @@ export interface CV {
 declare module '@/cv.json' {
   const value: CV;
 
-   
   export default value;
 }

@@ -12,7 +12,7 @@ const { about, class: className } = Astro.props;
 
 <Item class:list={['items-start', className]} variant='outline'>
   <ItemContent>
-    <ItemTitle class='text-3xl'>About Me</ItemTitle>
+    <ItemTitle class='text-3xl'>Sobre mí</ItemTitle>
     {about.map((text) => <ItemDescription class='mt-4 line-clamp-none'>{text}</ItemDescription>)}
   </ItemContent>
 </Item>

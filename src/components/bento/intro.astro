@@ -2,20 +2,19 @@
 import type { HTMLAttributes } from 'astro/types';
 
 import { Image } from 'astro:assets';
-import { cn } from 'tailwind-variants';
 
 import Button from '../ui/button.astro';
 import { Item, ItemContent, ItemDescription, ItemFooter, ItemMedia, ItemTitle } from '../ui/item';
 
-interface Props extends HTMLAttributes<'div'> {
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {
   name: string;
   summary: string;
 }
 
-const { name, summary, class: className, ...rest } = Astro.props;
+const { name, summary, class: className } = Astro.props;
 ---
 
-<Item class={cn(className)} {...rest} variant='outline'>
+<Item class={className} variant='outline'>
   <ItemContent>
     <ItemTitle class='text-3xl'>{name}</ItemTitle>
     <ItemDescription class='line-clamp-none text-lg leading-tight'>

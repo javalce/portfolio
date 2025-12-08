@@ -45,7 +45,7 @@
 }
 
 @theme {
-  --animate-scroll: scroll 60s linear infinite;
+  --animate-scroll: scroll;
 
   @keyframes scroll {
     from {

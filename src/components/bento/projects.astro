@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import type { Project } from '@/types';
+
+import { cn } from 'tailwind-variants';
+
+import Button from '../ui/button.astro';
+import { Item, ItemContent, ItemFooter, ItemTitle } from '../ui/item';
+
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {
+  projects: Project[];
+}
+
+const { projects, class: className } = Astro.props;
+---
+
+<Item class={cn('items-start', className)} variant='outline'>
+  <ItemContent>
+    <ItemTitle class='text-3xl'>Proyectos</ItemTitle>
+    <div class='space-y-2'>
+      {
+        projects.slice(0, 3).map((project) => (
+          <article>
+            <h3 class='text-lg font-semibold'>{project.name}</h3>
+            <p class='line-clamp-1 text-muted-foreground'>{project.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </ItemContent>
+  <ItemFooter>
+    <Button variant='link' href='/projects'>Ver más</Button>
+  </ItemFooter>
+</Item>

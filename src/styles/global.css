@@ -44,6 +44,19 @@
   --ring: oklch(0.552 0.016 285.938);
 }
 
+@theme {
+  --animate-scroll: scroll 60s linear infinite;
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -1,0 +1,47 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { Icon } from 'astro-icon/components';
+import { cn } from 'tailwind-variants';
+
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {}
+
+const { class: className } = Astro.props;
+
+const technologies = [
+  { icon: 'bash', name: 'Bash' },
+  { icon: 'html', name: 'HTML' },
+  { icon: 'css', name: 'CSS' },
+  { icon: 'javascript', name: 'JavaScript' },
+  { icon: 'typescript', name: 'TypeScript' },
+  { icon: 'python', name: 'Python' },
+  { icon: 'mysql', name: 'SQL' },
+  { icon: 'tailwind', name: 'Tailwind CSS' },
+  { icon: 'react', name: 'React' },
+  { icon: 'nextjs', name: 'Next.js' },
+  { icon: 'astro', name: 'Astro' },
+  { icon: 'angular', name: 'Angular' },
+  { icon: 'fastapi', name: 'FastAPI' },
+  { icon: 'mysql', name: 'MySQL' },
+  { icon: 'postgresql', name: 'PostgreSQL' },
+  { icon: 'mongodb', name: 'MongoDB' },
+  { icon: 'git', name: 'Git' },
+  { icon: 'github', name: 'GitHub' },
+  { icon: 'docker', name: 'Docker' },
+];
+---
+
+<div class={cn('border rounded-md overflow-clip ', className)}>
+  <div class='mask-[linear-gradient(to_right,transparent_0,black_10%,black_90%,transparent_100%)]'>
+    <div class='flex w-max animate-scroll gap-12 motion-reduce:animate-[80s] md:gap-20'>
+      {
+        [...technologies, ...technologies].map(({ icon, name }) => (
+          <div class='group inline-flex items-center gap-2 px-6 py-4 transition-all duration-300'>
+            <Icon name={icon} class='size-8 transition-transform group-hover:scale-110' />
+            <span class='text-lg font-medium text-primary'>{name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

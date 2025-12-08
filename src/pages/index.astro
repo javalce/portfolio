@@ -7,12 +7,12 @@ import TechnologiesSlider from '@/components/bento/technologies-slider.astro';
 import { profile, projects, work } from '@/cv.json';
 import Layout from '@/layouts/layout.astro';
 
-const { name, summary, about } = profile;
+const { name, summary, about, links, resumee } = profile;
 ---
 
 <Layout>
   <section class='grid w-full grid-cols-3 grid-rows-2 gap-2'>
-    <Intro class='col-span-2' name={name} summary={summary} />
+    <Intro class='col-span-2' name={name} summary={summary} links={links} resumee={resumee} />
     <About class='col-span-1 row-span-2' about={about} />
     <Experience class='col-span-1 row-span-1' work={work} />
     <Projects class='col-span-1 row-span-1' projects={projects} />

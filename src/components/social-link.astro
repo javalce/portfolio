@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { Icon } from 'astro-icon/components';
+
+import { buttonVariants } from './ui/button.astro';
+
+interface Props extends HTMLAttributes<'a'> {
+  name: string;
+  icon: string;
+}
+
+const { class: className, name, icon, ...rest } = Astro.props;
+---
+
+<a
+  class={buttonVariants({ size: 'icon-lg', class: className })}
+  target='_blank'
+  rel='noopener noreferrer'
+  title={name}
+  aria-label={name}
+  {...rest}
+>
+  <Icon name={icon} class='size-6' />
+</a>

@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { Image } from 'astro:assets';
+import { cn } from 'tailwind-variants';
+
+import Button from '../ui/button.astro';
+import { Item, ItemContent, ItemDescription, ItemFooter, ItemMedia, ItemTitle } from '../ui/item';
+
+interface Props extends HTMLAttributes<'div'> {
+  name: string;
+  summary: string;
+}
+
+const { name, summary, class: className, ...rest } = Astro.props;
+---
+
+<Item class={cn(className)} {...rest} variant='outline'>
+  <ItemContent>
+    <ItemTitle class='text-3xl'>{name}</ItemTitle>
+    <ItemDescription class='line-clamp-none text-lg leading-tight'>
+      {summary}
+    </ItemDescription>
+  </ItemContent>
+  <ItemMedia variant='image' class='size-60'>
+    <Image src='/profile.webp' alt='Javier Valero' width={500} height={519} priority />
+  </ItemMedia>
+  <ItemFooter class='justify-start'>
+    <Button>GitHub</Button>
+    <Button>LinkedIn</Button>
+    <Button>npm</Button>
+    <Button>Email</Button>
+    <Button>CV</Button>
+  </ItemFooter>
+</Item>

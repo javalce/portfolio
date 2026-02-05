@@ -9,6 +9,8 @@ import '@/styles/global.css';
 const title = 'Portfolio de javalce - Desarrollador y Programador Web con 2 años de expediencia';
 const description =
   'Desarrollador Web Full Stack. Especializado en crear aplicaciones para la visualización de datos.';
+
+const { pathname } = Astro.url;
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ const description =
     <ClientRouter />
   </head>
   <body class='grid min-h-dvh grid-rows-[auto_1fr_auto] gap-4 antialiased'>
-    <Header />
+    <Header currentPage={pathname} />
     <main class='mx-auto max-w-7xl space-y-8'>
       <slot />
     </main>

@@ -1,13 +1,57 @@
 ---
-import ThemeToggle from './theme-toggle.astro';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from './ui/breadcrumb';
+
+function normalizePath(path: string) {
+  const normalizedPath = path.replace(/\/+$/, '');
+
+  return normalizedPath || '/';
+}
+
+const pages = [
+  { name: 'Inicio', href: '/', normalizedHref: normalizePath('/') },
+  { name: 'Experiencia', href: '/experience', normalizedHref: normalizePath('/experience') },
+  { name: 'Proyectos', href: '/projects', normalizedHref: normalizePath('/projects') },
+];
+
+interface Props {
+  currentPage: string;
+}
+
+const { currentPage } = Astro.props;
+
+const current = normalizePath(currentPage);
+const pageIndex = pages.findIndex((page) => page.normalizedHref === current);
+const breadcrumb = pageIndex === -1 || pageIndex === 0 ? [pages[0]] : [pages[0], pages[pageIndex]];
 ---
 
 <header
-  class='h-16 w-full border-b bg-background/95 backdrop-blur-md supports-backdrop-filter:bg-background/95'
+  class='h-12 w-full border-b bg-background/95 backdrop-blur-md supports-backdrop-filter:bg-background/95'
 >
   <div class='container mx-auto flex h-full flex-col justify-center px-6'>
-    <nav class='flex items-center justify-end'>
-      <ThemeToggle />
-    </nav>
+    <Breadcrumb>
+      <BreadcrumbList>
+        {
+          breadcrumb.map((page, index) => (
+            <>
+              <BreadcrumbItem>
+                {page.href === currentPage ? (
+                  <BreadcrumbPage>{page.name}</BreadcrumbPage>
+                ) : (
+                  <BreadcrumbLink href={page.href}>{page.name}</BreadcrumbLink>
+                )}
+              </BreadcrumbItem>
+              {index < breadcrumb.length - 1 && <BreadcrumbSeparator />}
+            </>
+          ))
+        }
+      </BreadcrumbList>
+    </Breadcrumb>
   </div>
 </header>

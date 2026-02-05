@@ -16,19 +16,23 @@
     "links": [
       {
         "name": "GitHub",
-        "url": "https://github.com/javalce"
+        "url": "https://github.com/javalce",
+        "icon": "github"
       },
       {
         "name": "LinkedIn",
-        "url": "https://linkedin.com/in/javalce"
+        "url": "https://linkedin.com/in/javalce",
+        "icon": "linkedin"
       },
       {
         "name": "npm",
-        "url": "https://npmjs.com/~javalce"
+        "url": "https://npmjs.com/~javalce",
+        "icon": "npm"
       },
       {
         "name": "Email",
-        "url": "mailto:javalce29@gmail.com"
+        "url": "mailto:javalce29@gmail.com",
+        "icon": "mail"
       }
     ],
     "resumee": "/CV_Javier_Valero_Cejudo.pdf"

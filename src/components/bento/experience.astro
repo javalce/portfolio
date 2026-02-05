@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import type { WorkExperience } from '@/types';
+
+import Button from '../ui/button.astro';
+import { Item, ItemContent, ItemFooter, ItemTitle } from '../ui/item';
+
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {
+  work: WorkExperience[];
+}
+
+const { work, class: className } = Astro.props;
+---
+
+<Item class={className} variant='outline'>
+  <ItemContent>
+    <ItemTitle class='text-3xl'>Experiencia</ItemTitle>
+    <div class='mt-4 space-y-2'>
+      {
+        work.slice(0, 3).map(({ title, company, startDate, endDate }) => {
+          const startYear = new Date(startDate).getFullYear();
+          const endYear = endDate !== null ? new Date(endDate).getFullYear() : 'Actual';
+
+          return (
+            <article>
+              <h3 class='text-lg font-semibold'>{title}</h3>
+              <p class='text-accent-foreground'>{company}</p>
+              <div class='m-0 p-0 text-sm text-muted-foreground'>
+                <time datetime={startDate}>{startYear}</time>
+                {' - '}
+                <time datetime={endDate}>{endYear}</time>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </ItemContent>
+  <ItemFooter>
+    <Button variant='link' href='/experience'>Ver más</Button>
+  </ItemFooter>
+</Item>

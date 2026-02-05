@@ -1,0 +1,51 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { Icon } from 'astro-icon/components';
+import { cn } from 'tailwind-variants';
+
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {}
+
+const { class: className } = Astro.props;
+
+const technologies = [
+  { icon: 'bash', name: 'Bash' },
+  { icon: 'html', name: 'HTML' },
+  { icon: 'css', name: 'CSS' },
+  { icon: 'javascript', name: 'JavaScript' },
+  { icon: 'typescript', name: 'TypeScript' },
+  { icon: 'python', name: 'Python' },
+  { icon: 'mysql', name: 'SQL' },
+  { icon: 'tailwind', name: 'Tailwind CSS' },
+  { icon: 'react', name: 'React' },
+  { icon: 'nextjs', name: 'Next.js' },
+  { icon: 'astro', name: 'Astro' },
+  { icon: 'angular', name: 'Angular' },
+  { icon: 'fastapi', name: 'FastAPI' },
+  { icon: 'mysql', name: 'MySQL' },
+  { icon: 'postgresql', name: 'PostgreSQL' },
+  { icon: 'mongodb', name: 'MongoDB' },
+  { icon: 'git', name: 'Git' },
+  { icon: 'github-dark', name: 'GitHub' },
+  { icon: 'docker', name: 'Docker' },
+];
+---
+
+<div class={cn('border rounded-md overflow-clip', className)}>
+  <div
+    class='mask-[linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_10%,rgba(0,0,0,1)_90%,rgba(0,0,0,0)_100%)]'
+  >
+    <div
+      class='flex h-16 w-max animate-[scroll_60s_linear_infinite] gap-12 md:animate-[scroll_80s_linear_infinite] md:gap-10'
+    >
+      {
+        technologies.concat(technologies).map(({ icon, name }) => (
+          <div class='group inline-flex items-center gap-2 px-4 py-2 transition-transform duration-300 ease-in-out'>
+            <Icon name={icon} class='isolate size-6 text-transparent group-hover:scale-120' />
+            <span class='text-lg font-medium text-primary'>{name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

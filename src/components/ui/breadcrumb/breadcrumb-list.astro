@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { tv } from 'tailwind-variants';
+
+type Props = HTMLAttributes<'ol'>;
+
+export const breadcrumbList = tv({
+  base: 'flex flex-wrap items-center gap-1.5 break-words text-muted-foreground sm:gap-2',
+});
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<ol class={breadcrumbList({ class: className })} data-slot='breadcrumb-list' {...rest}>
+  <slot />
+</ol>

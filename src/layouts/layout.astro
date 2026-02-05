@@ -1,13 +1,16 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 
-import Hero from '@/components/hero.astro';
+import Footer from '@/components/footer.astro';
+import Header from '@/components/header.astro';
 
 import '@/styles/global.css';
 
 const title = 'Portfolio de javalce - Desarrollador y Programador Web con 2 años de expediencia';
 const description =
   'Desarrollador Web Full Stack. Especializado en crear aplicaciones para la visualización de datos.';
+
+const { pathname } = Astro.url;
 ---
 
 <!doctype html>
@@ -21,16 +24,11 @@ const description =
     <title>{title}</title>
     <ClientRouter />
   </head>
-  <body class='flex min-h-screen items-center justify-center p-4'>
-    <main
-      class='dark:shadow-foreground/10 relative mb-12 flex max-w-full flex-col overflow-hidden rounded-2xl border shadow-2xl md:mb-4 md:max-w-7xl md:flex-row'
-    >
-      <Hero />
-      <div class='w-full p-0 md:w-4/5'>
-        <div class='flex h-[90vh] min-h-full flex-col'>
-          <slot />
-        </div>
-      </div>
+  <body class='grid min-h-dvh grid-rows-[auto_1fr_auto] gap-4 antialiased'>
+    <Header currentPage={pathname} />
+    <main class='mx-auto max-w-7xl space-y-8'>
+      <slot />
     </main>
+    <Footer />
   </body>
 </html>

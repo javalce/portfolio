@@ -1,19 +1,24 @@
 ---
-interface Props {
-  href: string;
+import type { HTMLAttributes } from 'astro/types';
+
+import { Icon } from 'astro-icon/components';
+
+import { buttonVariants } from './ui/button.astro';
+
+interface Props extends HTMLAttributes<'a'> {
   name: string;
+  icon: string;
 }
 
-const { href, name } = Astro.props;
+const { class: className, name, icon, ...rest } = Astro.props;
 ---
 
 <a
-  href={href}
+  class={buttonVariants({ size: 'icon-lg', class: className })}
   target='_blank'
   rel='noopener noreferrer'
-  class='hover:bg-primary flex size-10 items-center justify-center rounded-lg border transition-all duration-150 hover:-translate-y-0.5'
-  title={name}
   aria-label={name}
+  {...rest}
 >
-  <slot />
+  <Icon name={icon} class='size-6' />
 </a>

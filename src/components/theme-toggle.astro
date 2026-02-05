@@ -1,21 +1,29 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/components/ui/dropdown';
-import MoonIcon from '@/icons/moon-icon.astro';
-import SunIcon from '@/icons/sun-icon.astro';
-import SystemIcon from '@/icons/system-icon.astro';
+
+import Button from './ui/button.astro';
 ---
 
 <Dropdown>
   <DropdownTrigger asChild>
-    <button
-      transition:persist
-      class='flex cursor-pointer appearance-none border-none transition hover:scale-125'
-    >
+    <Button transition:persist variant='ghost' size='icon'>
       <span class='sr-only'>Elige el tema</span>
-      <SunIcon class='size-5 transition-all' data-theme='light' aria-hidden='true' />
-      <MoonIcon class='absolute size-5 transition-all' data-theme='dark' aria-hidden='true' />
-      <SystemIcon class='absolute size-5 transition-all' data-theme='system' aria-hidden='true' />
-    </button>
+      <Icon name='sun' class='transition-all duration-300' data-theme='light' aria-hidden='true' />
+      <Icon
+        name='moon'
+        class='absolute transition-all duration-300'
+        data-theme='dark'
+        aria-hidden='true'
+      />
+      <Icon
+        name='system'
+        class='absolute transition-all duration-300'
+        data-theme='system'
+        aria-hidden='true'
+      />
+    </Button>
   </DropdownTrigger>
   <DropdownContent align='end'>
     <DropdownItem data-theme='light' class='theme-option'>Claro</DropdownItem>
@@ -25,36 +33,45 @@ import SystemIcon from '@/icons/system-icon.astro';
 </Dropdown>
 
 <script>
-  let remove: Function | null = null;
-  const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
+  const THEME_KEY = 'theme';
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const themeIcons = document.querySelectorAll<HTMLElement>('svg[data-theme]');
+  const themeOptions = document.querySelectorAll<HTMLDivElement>('.theme-option');
 
-  function updateTheme() {
-    if (remove) remove();
+  function applyTheme() {
+    const storedTheme = localStorage.getItem(THEME_KEY) ?? 'system';
+    const isDark = storedTheme === 'dark' || (storedTheme === 'system' && prefersDark.matches);
 
-    const themePreference = localStorage.getItem('theme') ?? 'system';
-    const isDark =
-      themePreference === 'dark' || (themePreference === 'system' && matchMedia.matches);
-
-    document.querySelectorAll<HTMLElement>('svg[data-theme]').forEach((el) => {
-      el.style.scale = el.dataset.theme === themePreference ? '1' : '0';
+    themeIcons.forEach((el) => {
+      el.style.scale = el.dataset.theme === storedTheme ? '1' : '0';
     });
-    document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.classList.toggle('light', !isDark);
 
-    matchMedia.addEventListener('change', updateTheme);
-    remove = () => matchMedia.removeEventListener('change', updateTheme);
+    document.documentElement.classList.toggle('dark', isDark);
   }
 
-  updateTheme();
+  function handleToggleThemeEvent(ev: Event) {
+    const el = ev.currentTarget as HTMLElement;
+    const theme = el.dataset.theme as string;
 
-  document.querySelectorAll<HTMLDivElement>('.theme-option').forEach((el) => {
-    el.addEventListener('click', () => {
-      const theme = el.dataset.theme as string;
+    if (theme === 'system') {
+      localStorage.removeItem(THEME_KEY);
+    } else {
+      localStorage.setItem(THEME_KEY, theme);
+    }
 
-      localStorage.setItem('theme', theme);
-      updateTheme();
+    applyTheme();
+  }
+
+  function initToggleTheme() {
+    applyTheme();
+
+    themeOptions.forEach((el) => {
+      el.removeEventListener('click', handleToggleThemeEvent);
+      el.addEventListener('click', handleToggleThemeEvent);
     });
-  });
+  }
 
-  document.addEventListener('astro:after-swap', updateTheme);
+  initToggleTheme();
+
+  document.addEventListener('astro:after-swap', initToggleTheme);
 </script>

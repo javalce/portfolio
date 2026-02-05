@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import type { Profile } from '@/types';
+
+import { Image } from 'astro:assets';
+
+import SocialLink from '../social-link.astro';
+import { Item, ItemContent, ItemDescription, ItemFooter, ItemMedia, ItemTitle } from '../ui/item';
+
+interface Props
+  extends
+    Pick<HTMLAttributes<'div'>, 'class'>,
+    Pick<Profile, 'name' | 'summary' | 'links' | 'resumee'> {}
+
+const { name, summary, links, resumee, class: className } = Astro.props;
+---
+
+<Item class={className} variant='outline'>
+  <ItemContent>
+    <ItemTitle class='text-3xl'>{name}</ItemTitle>
+    <ItemDescription class='line-clamp-none text-lg leading-tight'>
+      {summary}
+    </ItemDescription>
+  </ItemContent>
+  <ItemMedia variant='image' class='size-60'>
+    <Image src='/profile.webp' alt='Javier Valero' width={500} height={519} priority />
+  </ItemMedia>
+  <ItemFooter class='justify-start'>
+    {links.map(({ name, url, icon }) => <SocialLink name={name} href={url} icon={icon} />)}
+    <SocialLink name='Download CV' href={resumee} icon='download' />
+  </ItemFooter>
+</Item>

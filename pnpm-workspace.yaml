@@ -1,5 +1,9 @@
 minimumReleaseAge: 1440
 
+minimumReleaseAgeExclude:
+  - '@javalce/eslint-config'
+  - '@javalce/prettier-config'
+
 publicHoistPattern:
   - '*eslint*'
   - '*prettier*'

@@ -1,15 +1,6 @@
 export interface Profile {
   name: string;
-  label: string;
   summary: string;
-  location: {
-    city: string;
-    country: string;
-  };
-  about: string[];
-  image: string;
-  links: Link[];
-  resumee: string;
 }
 
 export interface Link {
@@ -38,17 +29,4 @@ export interface WorkExperience {
   description: string;
   startDate: string;
   endDate: string | null;
-}
-
-export interface CV {
-  profile: Profile;
-  skills: Skill[];
-  projects: Project[];
-  work: WorkExperience[];
-}
-
-declare module '@/cv.json' {
-  const value: CV;
-
-  export default value;
 }

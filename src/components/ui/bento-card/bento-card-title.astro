@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { tv } from 'tailwind-variants';
+
+type Props = HTMLAttributes<'div'>;
+
+const bentoCardTitle = tv({
+  base: 'flex w-fit items-center gap-2 text-3xl leading-snug font-semibold',
+});
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<h2 class={bentoCardTitle({ class: className })} data-slot='bento-card-title' {...rest}>
+  <slot />
+</h2>

@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { tv } from 'tailwind-variants';
+
+type Props = HTMLAttributes<'div'>;
+
+const bentoCardImage = tv({
+  base: [
+    'flex shrink-0 items-center justify-center gap-2 [&_svg]:pointer-events-none',
+    'group-has-data-[slot=bento-card-description]/bento-card:translate-y-0.5 group-has-data-[slot=bento-card-description]/bento-card:self-start',
+    'size-10 overflow-hidden rounded-sm [&_img]:size-full [&_img]:object-cover',
+  ],
+});
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class={bentoCardImage({ class: className })} data-slot='bento-card-image' {...rest}>
+  <slot />
+</div>

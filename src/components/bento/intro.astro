@@ -1,33 +1,42 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-import type { Profile } from '@/types';
-
 import { Image } from 'astro:assets';
 
-import SocialLink from '../social-link.astro';
-import { Item, ItemContent, ItemDescription, ItemFooter, ItemMedia, ItemTitle } from '../ui/item';
+import SocialLink from '@/components/social-link.astro';
+import {
+  BentoCard,
+  BentoCardContent,
+  BentoCardDescription,
+  BentoCardFooter,
+  BentoCardImage,
+  BentoCardTitle,
+} from '@/components/ui/bento-card';
+import { profile } from '@/data/profile';
 
-interface Props
-  extends
-    Pick<HTMLAttributes<'div'>, 'class'>,
-    Pick<Profile, 'name' | 'summary' | 'links' | 'resumee'> {}
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {}
 
-const { name, summary, links, resumee, class: className } = Astro.props;
+const { class: className } = Astro.props;
+const { name: profileName, summary } = profile;
 ---
 
-<Item class={className} variant='outline'>
-  <ItemContent>
-    <ItemTitle class='text-3xl'>{name}</ItemTitle>
-    <ItemDescription class='line-clamp-none text-lg leading-tight'>
-      {summary}
-    </ItemDescription>
-  </ItemContent>
-  <ItemMedia variant='image' class='size-60'>
-    <Image src='/profile.webp' alt='Javier Valero' width={500} height={519} priority />
-  </ItemMedia>
-  <ItemFooter class='justify-start'>
-    {links.map(({ name, url, icon }) => <SocialLink name={name} href={url} icon={icon} />)}
-    <SocialLink name='Download CV' href={resumee} icon='download' />
-  </ItemFooter>
-</Item>
+<BentoCard class:list={['items-center', className]}>
+  <BentoCardContent>
+    <BentoCardTitle>{profileName}</BentoCardTitle>
+    <BentoCardDescription class='text-lg leading-tight'>{summary}</BentoCardDescription>
+  </BentoCardContent>
+  <BentoCardImage class='size-60'>
+    <Image src='/profile.webp' alt={profileName} width={500} height={519} priority />
+  </BentoCardImage>
+  <BentoCardFooter>
+    <SocialLink name='GitHub' href='https://github.com/javalce' icon='github' />
+    <SocialLink
+      name='LinkedIn'
+      href='https://www.linkedin.com/in/javier-valero-cejudo/'
+      icon='linkedin'
+    />
+    <SocialLink name='NPM' href='https://www.npmjs.com/~javalce' icon='npm' />
+    <SocialLink name='Email' href='mailto:javalce29@gmail.com' icon='mail' />
+    <SocialLink name='Download CV' href='/CV_Javier_Valero_Cejudo.pdf' icon='download' />
+  </BentoCardFooter>
+</BentoCard>

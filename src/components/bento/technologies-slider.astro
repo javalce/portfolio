@@ -2,7 +2,8 @@
 import type { HTMLAttributes } from 'astro/types';
 
 import { Icon } from 'astro-icon/components';
-import { cn } from 'tailwind-variants';
+
+import { BentoCard } from '@/components/ui/bento-card';
 
 interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {}
 
@@ -31,7 +32,7 @@ const technologies = [
 ];
 ---
 
-<div class={cn('border rounded-md overflow-clip', className)}>
+<BentoCard class:list={['overflow-clip', className]}>
   <div
     class='mask-[linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_10%,rgba(0,0,0,1)_90%,rgba(0,0,0,0)_100%)]'
   >
@@ -46,4 +47,4 @@ const technologies = [
       }
     </div>
   </div>
-</div>
+</BentoCard>

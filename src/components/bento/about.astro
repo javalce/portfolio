@@ -1,18 +1,23 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-import type { Profile } from '@/types';
+import { getEntry, render } from 'astro:content';
 
-import { Item, ItemContent, ItemDescription, ItemTitle } from '../ui/item';
+import { BentoCard, BentoCardContent } from '@/components/ui/bento-card';
+import Prose from '@/components/ui/prose.astro';
 
-interface Props extends Pick<HTMLAttributes<'div'>, 'class'>, Pick<Profile, 'about'> {}
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {}
 
-const { about, class: className } = Astro.props;
+const about = await getEntry('homePage', 'about')!;
+const { Content } = await render(about);
+
+const { class: className } = Astro.props;
 ---
 
-<Item class:list={['items-start', className]} variant='outline'>
-  <ItemContent>
-    <ItemTitle class='text-3xl'>Sobre mí</ItemTitle>
-    {about.map((text) => <ItemDescription class='mt-4 line-clamp-none'>{text}</ItemDescription>)}
-  </ItemContent>
-</Item>
+<BentoCard class={className}>
+  <BentoCardContent>
+    <Prose size='sm'>
+      <Content />
+    </Prose>
+  </BentoCardContent>
+</BentoCard>

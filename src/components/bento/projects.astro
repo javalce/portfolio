@@ -1,23 +1,23 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-import type { Project } from '@/types';
+import {
+  BentoCard,
+  BentoCardContent,
+  BentoCardFooter,
+  BentoCardTitle,
+} from '@/components/ui/bento-card';
+import Button from '@/components/ui/button.astro';
+import { projects } from '@/data/projects';
 
-import { cn } from 'tailwind-variants';
+interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {}
 
-import Button from '../ui/button.astro';
-import { Item, ItemContent, ItemFooter, ItemTitle } from '../ui/item';
-
-interface Props extends Pick<HTMLAttributes<'div'>, 'class'> {
-  projects: Project[];
-}
-
-const { projects, class: className } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<Item class={cn('items-start', className)} variant='outline'>
-  <ItemContent>
-    <ItemTitle class='text-3xl'>Proyectos</ItemTitle>
+<BentoCard class={className}>
+  <BentoCardContent>
+    <BentoCardTitle>Proyectos</BentoCardTitle>
     <div class='space-y-2'>
       {
         projects.slice(0, 3).map((project) => (
@@ -28,8 +28,8 @@ const { projects, class: className } = Astro.props;
         ))
       }
     </div>
-  </ItemContent>
-  <ItemFooter>
+  </BentoCardContent>
+  <BentoCardFooter>
     <Button variant='link' href='/projects'>Ver más</Button>
-  </ItemFooter>
-</Item>
+  </BentoCardFooter>
+</BentoCard>

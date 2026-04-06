@@ -12,5 +12,5 @@
     "global.css": "tailwindcss"
   },
   "prettier.documentSelectors": ["**/*.astro"],
-  "tailwindCSS.classFunctions": ["tv"]
+  "tailwindCSS.classFunctions": ["tv", "cn"]
 }

@@ -1,9 +1,6 @@
 minimumReleaseAge: 1440
-
-minimumReleaseAgeExclude:
-  - '@javalce/eslint-config'
-  - '@javalce/prettier-config'
-
+overrides:
+  yaml@>=2.0.0 <2.8.3: '>=2.8.3'
 publicHoistPattern:
   - '*eslint*'
   - '*prettier*'

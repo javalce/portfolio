@@ -3,6 +3,11 @@ import type { HTMLAttributes } from 'astro/types';
 
 import { Image } from 'astro:assets';
 
+import DownloadIcon from '@/components/icons/download-icon.astro';
+import GithubIcon from '@/components/icons/github-icon.astro';
+import LinkedinIcon from '@/components/icons/linkedin-icon.astro';
+import MailIcon from '@/components/icons/mail-icon.astro';
+import NpmIcon from '@/components/icons/npm-icon.astro';
 import SocialLink from '@/components/social-link.astro';
 import {
   BentoCard,
@@ -29,14 +34,20 @@ const { name: profileName, summary } = profile;
     <Image src='/profile.webp' alt={profileName} width={500} height={519} priority />
   </BentoCardImage>
   <BentoCardFooter>
-    <SocialLink name='GitHub' href='https://github.com/javalce' icon='github' />
-    <SocialLink
-      name='LinkedIn'
-      href='https://www.linkedin.com/in/javier-valero-cejudo/'
-      icon='linkedin'
-    />
-    <SocialLink name='NPM' href='https://www.npmjs.com/~javalce' icon='npm' />
-    <SocialLink name='Email' href='mailto:javalce29@gmail.com' icon='mail' />
-    <SocialLink name='Download CV' href='/CV_Javier_Valero_Cejudo.pdf' icon='download' />
+    <SocialLink name='GitHub' href='https://github.com/javalce'>
+      <GithubIcon />
+    </SocialLink>
+    <SocialLink name='LinkedIn' href='https://www.linkedin.com/in/javier-valero-cejudo/'>
+      <LinkedinIcon />
+    </SocialLink>
+    <SocialLink name='NPM' href='https://www.npmjs.com/~javalce'>
+      <NpmIcon />
+    </SocialLink>
+    <SocialLink name='Email' href='mailto:javalce29@gmail.com'>
+      <MailIcon />
+    </SocialLink>
+    <SocialLink name='Download CV' href='/CV_Javier_Valero_Cejudo.pdf'>
+      <DownloadIcon />
+    </SocialLink>
   </BentoCardFooter>
 </BentoCard>

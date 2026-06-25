@@ -1,24 +1,18 @@
 ---
-import { Icon } from 'astro-icon/components';
-
+import MoonIcon from '@/components/icons/moon-icon.astro';
+import SunIcon from '@/components/icons/sun-icon.astro';
+import SystemIcon from '@/components/icons/system-icon.astro';
+import Button from '@/components/ui/button.astro';
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/components/ui/dropdown';
-
-import Button from './ui/button.astro';
 ---
 
 <Dropdown>
   <DropdownTrigger asChild>
     <Button transition:persist variant='ghost' size='icon'>
       <span class='sr-only'>Elige el tema</span>
-      <Icon name='sun' class='transition-all duration-300' data-theme='light' aria-hidden='true' />
-      <Icon
-        name='moon'
-        class='absolute transition-all duration-300'
-        data-theme='dark'
-        aria-hidden='true'
-      />
-      <Icon
-        name='system'
+      <SunIcon class='transition-all duration-300' data-theme='light' aria-hidden='true' />
+      <MoonIcon class='absolute transition-all duration-300' data-theme='dark' aria-hidden='true' />
+      <SystemIcon
         class='absolute transition-all duration-300'
         data-theme='system'
         aria-hidden='true'

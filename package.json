@@ -15,16 +15,16 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
-    "astro": "6.4.6",
+    "astro": "6.4.8",
     "astro-icon": "1.1.5",
     "tailwind-merge": "3.6.0",
     "tailwind-variants": "3.2.2"
   },
   "devDependencies": {
-    "@javalce/eslint-config": "0.25.1",
+    "@javalce/eslint-config": "0.26.0",
     "@javalce/prettier-config": "2.2.3",
-    "@tailwindcss/typography": "0.5.19",
-    "@tailwindcss/vite": "4.3.0",
+    "@tailwindcss/typography": "0.5.20",
+    "@tailwindcss/vite": "4.3.1",
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
     "@types/node": "24.13.2",
     "astro-eslint-parser": "1.4.0",

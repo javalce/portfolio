@@ -1,16 +1,13 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-import { Icon } from 'astro-icon/components';
-
 import { buttonVariants } from './ui/button.astro';
 
 interface Props extends HTMLAttributes<'a'> {
   name: string;
-  icon: string;
 }
 
-const { class: className, name, icon, ...rest } = Astro.props;
+const { class: className, name, ...rest } = Astro.props;
 ---
 
 <a
@@ -20,5 +17,5 @@ const { class: className, name, icon, ...rest } = Astro.props;
   aria-label={name}
   {...rest}
 >
-  <Icon name={icon} class='size-6' />
+  <slot />
 </a>

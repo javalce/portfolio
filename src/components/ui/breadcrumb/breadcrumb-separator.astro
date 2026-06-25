@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-import { Icon } from 'astro-icon/components';
 import { tv } from 'tailwind-variants';
+
+import ChevronIconRight from '@/components/icons/chevron-icon-right.astro';
 
 type Props = HTMLAttributes<'li'>;
 
@@ -19,6 +20,6 @@ const { class: className, ...rest } = Astro.props;
   {...rest}
 >
   <slot>
-    <Icon name='chevron-right' />
+    <ChevronIconRight />
   </slot>
 </li>

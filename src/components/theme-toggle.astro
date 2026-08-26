@@ -20,19 +20,19 @@ import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/comp
     </Button>
   </DropdownTrigger>
   <DropdownContent align='end'>
-    <DropdownItem data-theme='light' class='theme-option'>Claro</DropdownItem>
-    <DropdownItem data-theme='dark' class='theme-option'>Oscuro</DropdownItem>
-    <DropdownItem data-theme='system' class='theme-option'>Sistema</DropdownItem>
+    <DropdownItem data-theme='light'>Claro</DropdownItem>
+    <DropdownItem data-theme='dark'>Oscuro</DropdownItem>
+    <DropdownItem data-theme='system'>Sistema</DropdownItem>
   </DropdownContent>
 </Dropdown>
 
 <script>
   const THEME_KEY = 'theme';
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const themeIcons = document.querySelectorAll<HTMLElement>('svg[data-theme]');
-  const themeOptions = document.querySelectorAll<HTMLDivElement>('.theme-option');
 
   function applyTheme() {
+    const themeIcons = document.querySelectorAll<HTMLElement>('svg[data-theme]');
+
     const storedTheme = localStorage.getItem(THEME_KEY) ?? 'system';
     const isDark = storedTheme === 'dark' || (storedTheme === 'system' && prefersDark.matches);
 
@@ -58,6 +58,8 @@ import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/comp
 
   function initToggleTheme() {
     applyTheme();
+
+    const themeOptions = document.querySelectorAll<HTMLDivElement>('div[data-theme]');
 
     themeOptions.forEach((el) => {
       el.removeEventListener('click', handleToggleThemeEvent);

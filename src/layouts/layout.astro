@@ -27,7 +27,7 @@ const { pathname } = Astro.url;
     <Font cssVariable='--font-geist-mono' preload />
     <ClientRouter />
   </head>
-  <body class='grid min-h-dvh grid-rows-[auto_1fr_auto] gap-4 antialiased'>
+  <body class='grid min-h-dvh grid-rows-[auto_1fr] gap-4 antialiased'>
     <Header currentPage={pathname} />
     <main class='mx-auto max-w-7xl space-y-8'>
       <slot />

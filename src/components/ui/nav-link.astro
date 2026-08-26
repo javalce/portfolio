@@ -1,0 +1,21 @@
+---
+import { cn } from 'tailwind-variants';
+
+interface Props {
+  href: string;
+  label: string;
+  active?: boolean;
+}
+
+const { href, label, active } = Astro.props;
+---
+
+<a
+  href={href}
+  aria-current={active ? 'page' : undefined}
+  class={cn('text-foreground/60 transition-colors hover:text-foreground', {
+    'text-foreground': active,
+  })}
+>
+  {label}
+</a>

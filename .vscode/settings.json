@@ -1,22 +1,22 @@
 {
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.codeActionsOnSave": {
     "source.addMissingImports.ts": "explicit",
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never",
+    "source.removeUnused.ts": "explicit",
     "source.removeUnusedImports": "explicit"
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, pnpm-workspace.yaml, bun.lockb, bun.lock, .gitignore, .editorconfig, .node-version, .prettierignore, *.config.js, *.config.ts",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, pnpm-workspace.yaml, bun.lockb, .gitignore, *.config.js, *.config.mjs, *.config.ts, .editorconfig, .prettierignore, .node-version, .npmrc",
     "tsconfig.json": "tsconfig.*.json"
   },
   "files.associations": {
-    "global.css": "tailwindcss"
+    "*.css": "tailwindcss"
   },
-  "prettier.documentSelectors": ["**/*.astro"],
   "tailwindCSS.classFunctions": ["tv", "cn"]
 }

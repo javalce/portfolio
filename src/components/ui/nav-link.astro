@@ -13,7 +13,7 @@ const { href, label, active } = Astro.props;
 <a
   href={href}
   aria-current={active ? 'page' : undefined}
-  class={cn('text-foreground/60 transition-colors hover:text-foreground', {
+  class={cn('text-xs text-foreground/60 transition-colors hover:text-foreground md:text-base', {
     'text-foreground': active,
   })}
 >

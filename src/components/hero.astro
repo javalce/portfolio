@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+
+import GithubIcon from './icons/github-icon.astro';
+import NpmIcon from './icons/npm-icon.astro';
+import SocialLink from './social-link.astro';
+---
+
+<article class='flex flex-col items-center justify-center gap-8 md:flex-row'>
+  <div class='order-2 md:order-1'>
+    <h1 class='text-4xl font-bold tracking-tight text-primary/80 sm:text-5xl'>Javier Valero</h1>
+    <p class='mt-6 text-xl text-primary/80'>
+      Desarrollador de software. Construyo aplicaciones, herramientas y experiencias para la web.
+    </p>
+    <nav class='mt-8 flex flex-wrap gap-4'>
+      <SocialLink name='GitHub' href='https://github.com/javalce'>
+        <GithubIcon class='dark:invert' /> GitHub
+      </SocialLink>
+      <SocialLink name='NPM' href='https://www.npmjs.com/~javalce'>
+        <NpmIcon /> NPM
+      </SocialLink>
+    </nav>
+  </div>
+  <Image
+    src='/profile.webp'
+    alt={'Javier Valero'}
+    class='lg:pd-2 order-1 aspect-square h-full w-64 rounded-2xl object-cover p-1 md:order-2 lg:w-64'
+    width={500}
+    height={519}
+  />
+</article>

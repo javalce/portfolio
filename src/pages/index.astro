@@ -1,8 +1,13 @@
 ---
+import Hero from '@/components/hero.astro';
+import SectionContainer from '@/components/section-container.astro';
 import Layout from '@/layouts/layout.astro';
 ---
 
 <Layout>
+  <SectionContainer class='py-16 md:py-36'>
+    <Hero />
+  </SectionContainer>
   <!-- <section class='grid w-full grid-cols-3 grid-rows-2 gap-2'>
     <Intro class='col-span-2 animate-fade-in-up delay-0' />
     <About class='col-span-1 row-span-2 animate-fade-in-up delay-300' />
